@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Сигнал не найден - Системные Технологии</title>
+    <meta name="description" content="Запрашиваемая страница не найдена. Возможно, соединение разорвано.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glow-text {
+            text-shadow: 0 0 20px rgba(37, 99, 235, 0.5), 0 0 40px rgba(37, 99, 235, 0.3);
+        }
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex flex-col">
+
+    <!-- Упрощенная шапка -->
+    <header class="w-full py-6 border-b border-slate-800">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/logo.webp" alt="Системные Технологии" class="h-10 w-10 object-cover rounded-full shadow-md ring-2 ring-blue-500/50">
+                <span class="text-lg font-bold text-white">Системные Технологии</span>
+            </a>
+            <a href="index.html" class="text-sm font-semibold text-slate-400 hover:text-white transition flex items-center gap-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                На главную
+            </a>
+        </div>
+    </header>
+
+    <!-- Основной контент 404 -->
+    <main class="flex-grow flex items-center justify-center py-12 px-6">
+        <div class="container mx-auto max-w-5xl grid md:grid-cols-2 gap-12 items-center">
+            
+            <!-- Изображение -->
+            <div class="float-anim order-2 md:order-1">
+                <img src="images/404-error.webp" alt="404 Ошибка соединения" class="w-full h-auto rounded-2xl shadow-2xl shadow-blue-900/20 border border-slate-800">
+            </div>
+
+            <!-- Текст -->
+            <div class="order-1 md:order-2 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                    <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                    Ошибка соединения
+                </div>
+                <h1 class="text-8xl md:text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 glow-text mb-4 leading-none">
+                    404
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                    Сигнал не найден
+                </h2>
+                <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                    Похоже, мы потеряли связь с запрашиваемым узлом сети. Страница могла быть перемещена, удалена или никогда не существовала в нашей инфраструктуре.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="index.html" class="bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
+                        <i data-lucide="home" class="w-5 h-5"></i>
+                        Вернуться на базу
+                    </a>
+                    <a href="index.html#contacts" class="bg-slate-800 text-white border border-slate-700 px-8 py-3.5 rounded-full font-bold hover:bg-slate-700 transition flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        Связаться с нами
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="py-6 border-t border-slate-800 text-center">
+        <p class="text-slate-500 text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
