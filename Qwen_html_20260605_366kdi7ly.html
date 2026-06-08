@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Системные Технологии | Слаботочные системы под ключ с 2007 года</title>
+    <meta name="description" content="Комплексные услуги по техническому обеспечению и оборудованию слаботочными системами объектов от офиса до целого предприятия.">
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключение шрифтов -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Иконки -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Навигация -->
+    <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <!-- ЗАМЕНИТЕ src НА ПУТЬ К ВАШЕМУ НОВОМУ ЛОГОТИПУ: ./assets/images/logo.png -->
+                <img src="https://via.placeholder.com/50x50/0ea5e9/ffffff?text=ST" alt="Логотип Системные Технологии" class="h-10 w-auto rounded">
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Системные<br>Технологии</h1>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
+                <a href="#about" class="hover:text-blue-600 transition">О компании</a>
+                <a href="#services" class="hover:text-blue-600 transition">Услуги</a>
+                <a href="#process" class="hover:text-blue-600 transition">Этапы работы</a>
+                <a href="#clients" class="hover:text-blue-600 transition">Клиенты</a>
+                <a href="#contacts" class="hover:text-blue-600 transition">Контакты</a>
+            </nav>
+            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                +7 (812) 339-92-99
+            </a>
+        </div>
+    </header>
+
+    <!-- Главный экран (Hero) -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 text-center md:text-left">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-blue-600/20 text-blue-300 border border-blue-500/30 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                    Работаем для вас с 2007 года
+                </span>
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    Комплексные слаботочные системы <span class="text-blue-400">«под ключ»</span>
+                </h2>
+                <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
+                    От офиса и квартиры до целого предприятия. Обеспечиваем жизнедеятельность объекта и безопасность бизнеса: от консультации и проектирования до монтажа и сервисного обслуживания.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contacts" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 text-center">
+                        Обсудить проект
+                    </a>
+                    <a href="#services" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition text-center">
+                        Наши услуги
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании / Преимущества -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Почему выбирают нас</h3>
+                <p class="text-slate-600 max-w-2xl mx-auto">Мы не просто устанавливаем оборудование, мы создаем надежную инфраструктуру для вашего бизнеса, адаптируя решения под конкретные условия объекта.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Надежность и качество</h4>
+                    <p class="text-slate-600">Используем только проверенное оборудование. Имеем лицензию МЧС и сертификат соответствия ГОСТ Р ИСО 9001-2015.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Индивидуальный подход</h4>
+                    <p class="text-slate-600">Комплексное решение задач с уменьшением издержек заказчика. Адаптация решений под существующие системы объекта.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="award" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Членство в СРО</h4>
+                    <p class="text-slate-600">Являемся членами саморегулируемых организаций в области проектирования и строительства инженерных систем.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Наши компетенции</h3>
+                <p class="text-slate-600">Полный спектр инженерных и слаботочных систем</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Карточка услуги -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <i data-lucide="video" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h5 class="font-bold text-lg mb-2">Видеонаблюдение</h5>
+                    <p class="text-sm text-slate-500">Проектирование и монтаж систем любой сложности.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <i data-lucide="siren" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h5 class="font-bold text-lg mb-2">Охранно-пожарная сигнализация</h5>
+                    <p class="text-sm text-slate-500">Обеспечение пожарной безопасности объектов.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <i data-lucide="fingerprint" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h5 class="font-bold text-lg mb-2">СКУД и домофония</h5>
+                    <p class="text-sm text-slate-500">Контроль и управление доступом, защита от протечек.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <i data-lucide="home" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h5 class="font-bold text-lg mb-2">Умный дом</h5>
+                    <p class="text-sm text-slate-500">Платформы HDL, Lutron, KNX, ABB.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <i data-lucide="wind" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h5 class="font-bold text-lg mb-2">Вентиляция и кондиционирование</h5>
+                    <p class="text-sm text-slate-500">Приточно-вытяжные системы и климат-контроль.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <i data-lucide="network" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h5 class="font-bold text-lg mb-2">СКС и Wi-Fi</h5>
+                    <p class="text-sm text-slate-500">Структурированные кабельные сети и серверное оборудование.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <i data-lucide="zap" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h5 class="font-bold text-lg mb-2">Электропитание</h5>
+                    <p class="text-sm text-slate-500">Системы бесперебойного и гарантированного электропитания.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <i data-lucide="volume-2" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h5 class="font-bold text-lg mb-2">Речевое оповещение</h5>
+                    <p class="text-sm text-slate-500">Системы звукоусиления и музыкальной трансляции.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Этапы работы -->
+    <section id="process" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Как мы работаем</h3>
+                <p class="text-slate-600">Прозрачный процесс от первой встречи до сдачи объекта</p>
+            </div>
+            <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="text-center p-4">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                    <h6 class="font-bold mb-2">Обследование</h6>
+                    <p class="text-xs text-slate-500">Анализ объекта и потребностей</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                    <h6 class="font-bold mb-2">Тех. решение</h6>
+                    <p class="text-xs text-slate-500">Разработка концепции</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                    <h6 class="font-bold mb-2">Проектирование</h6>
+                    <p class="text-xs text-slate-500">Создание рабочей документации</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+                    <h6 class="font-bold mb-2">Монтаж</h6>
+                    <p class="text-xs text-slate-500">Строительно-монтажные работы</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">5</div>
+                    <h6 class="font-bold mb-2">Пуско-наладка</h6>
+                    <p class="text-xs text-slate-500">Тестирование и сдача системы</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">6</div>
+                    <h6 class="font-bold mb-2">Обслуживание</h6>
+                    <p class="text-xs text-slate-500">Техническая поддержка 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Клиенты -->
+    <section id="clients" class="py-16 bg-slate-50 border-y border-slate-200">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold text-center text-slate-900 mb-10">Нам доверяют</h3>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+                <!-- Здесь можно вставить реальные логотипы из папки assets/images -->
+                <span class="text-xl font-bold text-slate-400 hover:text-slate-700 transition">ПАО «Северсталь»</span>
+                <span class="text-xl font-bold text-slate-400 hover:text-slate-700 transition">ЕвроТрансСтрой</span>
+                <span class="text-xl font-bold text-slate-400 hover:text-slate-700 transition">Росморпорт</span>
+                <span class="text-xl font-bold text-slate-400 hover:text-slate-700 transition">Carl's Jr.</span>
+                <span class="text-xl font-bold text-slate-400 hover:text-slate-700 transition">Институт экспериментальной медицины</span>
+                <span class="text-xl font-bold text-slate-400 hover:text-slate-700 transition">Трест Севзапкурортстрой</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">Свяжитесь с нами</h3>
+                    <p class="text-slate-400 mb-8">Готовы обсудить ваш проект? Оставьте заявку или позвоните нам. Мы предоставим индивидуальное коммерческое предложение.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-1">Адрес</h5>
+                                <p class="text-slate-400 text-sm">190013, г. Санкт-Петербург, ул. Рузовская, д. 16, лит. А, пом. 8-Н, офис 206</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-1">Телефоны</h5>
+                                <p class="text-slate-400 text-sm">+7 (812) 339-92-99<br>+7 (812) 947-55-51</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-1">Email</h5>
+                                <p class="text-slate-400 text-sm">office@systechnologies.ru</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Форма обратной связи (визуальная) -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700">
+                    <h4 class="text-xl font-bold mb-6">Оставить заявку</h4>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-1">Ваше имя</label>
+                            <input type="text" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Иван Иванов">
+                        </div>
+                        <div>
+                            <label class="block text-sm font
