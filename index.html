@@ -50,14 +50,37 @@
         }
         
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Оригинальная анимация блика для карточек клиентов */
+        .client-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .client-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.7s ease-in-out;
+            z-index: 1;
+        }
+        
+        .client-card:hover::before {
+            left: 150%;
+        }
+
+        .client-card:hover .client-icon {
+            transform: scale(1.1) rotate(12deg);
+            background-color: #2563EB;
+            color: white;
         }
     </style>
 </head>
@@ -67,8 +90,8 @@
     <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <!-- Логотип из репозитория -->
-                <img src="images/logo.webp" alt="Системные Технологии" class="h-12 w-auto rounded-lg shadow-md">
+                <!-- КРУГЛЫЙ ЛОГОТИП -->
+                <img src="images/logo.webp" alt="Системные Технологии" class="h-12 w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100 transition-transform duration-300 hover:scale-105 hover:ring-blue-300">
                 <div>
                     <h1 class="text-xl font-bold text-slate-900 leading-tight">Системные<br>Технологии</h1>
                 </div>
@@ -171,91 +194,66 @@
                 <p class="text-slate-600">Полный спектр инженерных и слаботочных систем — 13 ключевых направлений</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- 1. Видеонаблюдение -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="video" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Видеонаблюдение</h5>
                     <p class="text-sm text-slate-500">Проектирование и монтаж IP- и аналоговых систем любой сложности.</p>
                 </div>
-                
-                <!-- 2. Охранно-пожарная сигнализация -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="flame" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Пожарная безопасность</h5>
                     <p class="text-sm text-slate-500">Охранно-пожарная сигнализация и системы оповещения.</p>
                 </div>
-                
-                <!-- 3. СКУД -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="fingerprint" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">СКУД и домофония</h5>
                     <p class="text-sm text-slate-500">Контроль доступа, домофония, защита от протечек.</p>
                 </div>
-                
-                <!-- 4. Умный дом -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="home" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Умный дом</h5>
                     <p class="text-sm text-slate-500">Автоматизация на платформах HDL, Lutron, KNX, ABB.</p>
                 </div>
-                
-                <!-- 5. Вентиляция -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="wind" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">Вентиляция и кондиционирование</h5>
+                    <h5 class="font-bold text-lg mb-2">Вентиляция</h5>
                     <p class="text-sm text-slate-500">Приточно-вытяжные системы и климат-контроль.</p>
                 </div>
-                
-                <!-- 6. СКС -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="network" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">СКС и Wi-Fi</h5>
                     <p class="text-sm text-slate-500">Структурированные кабельные сети, серверное оборудование.</p>
                 </div>
-                
-                <!-- 7. Электропитание -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="zap" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Электропитание</h5>
                     <p class="text-sm text-slate-500">Системы электроснабжения и бесперебойного питания.</p>
                 </div>
-                
-                <!-- 8. Речевое оповещение -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="volume-2" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Речевое оповещение</h5>
                     <p class="text-sm text-slate-500">Системы звукоусиления и музыкальной трансляции.</p>
                 </div>
-                
-                <!-- 9. Телефония -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="phone" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Телефонная связь</h5>
                     <p class="text-sm text-slate-500">Системы телефонии и беспроводной связи.</p>
                 </div>
-                
-                <!-- 10. Телевидение -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="tv" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Эфирное и спутниковое ТВ</h5>
                     <p class="text-sm text-slate-500">Кабельное, эфирное и спутниковое телевидение.</p>
                 </div>
-                
-                <!-- 11. Водоснабжение -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="droplets" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Водоснабжение</h5>
                     <p class="text-sm text-slate-500">Системы ХВС, ГВС и водоотведения.</p>
                 </div>
-                
-                <!-- 12. Компьютерные системы -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="monitor" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Компьютерные системы</h5>
                     <p class="text-sm text-slate-500">ЛВС, серверное оборудование, ПО, СУБД.</p>
                 </div>
-                
-                <!-- 13. Проектирование -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100 sm:col-span-2 lg:col-span-4">
                     <div class="flex items-start gap-4">
                         <i data-lucide="drafting-compass" class="w-8 h-8 text-blue-600 flex-shrink-0 mt-1"></i>
@@ -311,32 +309,114 @@
         </div>
     </section>
 
-    <!-- Клиенты -->
-    <section id="clients" class="py-16 bg-slate-50 border-y border-slate-200">
+    <!-- Клиенты (ОРИГИНАЛЬНЫЙ ДИЗАЙН С АНИМАЦИЕЙ) -->
+    <section id="clients" class="py-20 bg-slate-50 border-y border-slate-200">
         <div class="container mx-auto px-6">
-            <h3 class="text-2xl font-bold text-center text-slate-900 mb-10">Нам доверяют</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-                    <p class="font-bold text-slate-700 text-sm">ПАО «Северсталь»</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-                    <p class="font-bold text-slate-700 text-sm">ЕвроТрансСтрой</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-                    <p class="font-bold text-slate-700 text-sm">Росморпорт</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-                    <p class="font-bold text-slate-700 text-sm">Carl's Jr.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-                    <p class="font-bold text-slate-700 text-sm">ИЭМ</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-                    <p class="font-bold text-slate-700 text-sm">Трест Севзапкурортстрой</p>
-                </div>
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Нам доверяют</h3>
+                <p class="text-slate-600 max-w-2xl mx-auto">За годы работы мы получили множество положительных отзывов за высокий профессионализм и качество при выполнении работ.</p>
             </div>
-            <div class="mt-8 text-center">
-                <p class="text-slate-600 text-sm">А также ПРОКАМИ, Апраксин Двор, НАРТ, БПО Евразия-Снаб и другие компании</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Карточка 1 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="building-2" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">ПАО «Северсталь»</p>
+                   3>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="hard-hat" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">ЕвроТрансСтрой</p>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="anchor" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">ФГУП «Росморпорт»</p>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="utensils" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">Carl's Jr.</p>
+                    </div>
+                </div>
+
+                <!-- Карточка 5 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="flask-conical" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">ИЭМ</p>
+                    </div>
+                </div>
+
+                <!-- Карточка 6 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="store" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">ТК «Апраксин Двор»</p>
+                    </div>
+                </div>
+
+                <!-- Карточка 7 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="briefcase" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">ООО «НАРТ»</p>
+                    </div>
+                </div>
+
+                <!-- Карточка 8 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="truck" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">БПО Евразия-Снаб</p>
+                    </div>
+                </div>
+
+                <!-- Карточка 9 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="hammer" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">Трест Севзапкурортстрой</p>
+                    </div>
+                </div>
+
+                <!-- Карточка 10 -->
+                <div class="client-card bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover group cursor-default">
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="client-icon w-14 h-14 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all duration-500">
+                            <i data-lucide="shield" class="w-7 h-7"></i>
+                        </div>
+                        <p class="font-bold text-slate-700 group-hover:text-blue-700 transition-colors duration-300">ООО «ПРОКАМИ»</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
