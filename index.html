@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Системные Технологии | Слаботочные системы под ключ с 2007 года</title>
-    <meta name="description" content="Комплексные услуги по техническому обеспечению и оборудованию слаботочными системами объектов от офиса до целого предприятия. Проектирование, монтаж, обслуживание.">
+    <meta name="description" content="Комплексные услуги по техническому обеспечению и оборудованию слаботочными системами объектов от офиса до целого предприятия.">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
         
         .glass-effect {
             background: rgba(255, 255, 255, 0.95);
@@ -35,44 +30,48 @@
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Анимация бегущей строки */
+
+        /* ИСПРАВЛЕННАЯ АНИМАЦИЯ БЕГУЩЕЙ СТРОКИ */
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
         .animate-marquee {
-            animation: marquee 35s linear infinite;
+            animation: marquee 40s linear infinite;
+            will-change: transform;
         }
         .animate-marquee:hover {
             animation-play-state: paused;
         }
-        .client-badge:hover {
+        .client-logo-wrapper:hover {
             border-color: #2563EB;
             transform: translateY(-2px);
             box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.2);
+        }
+        .client-logo-wrapper {
+            transition: all 0.3s ease;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <!-- Навигация -->
+    <!-- Навигация (МНОГОСТРАНИЧНАЯ) -->
     <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-3">
                 <img src="images/logo.webp" alt="Системные Технологии" class="h-12 w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100 transition-transform duration-300 hover:scale-105 hover:ring-blue-300">
                 <div>
                     <h1 class="text-xl font-bold text-slate-900 leading-tight">Системные<br>Технологии</h1>
                 </div>
-            </div>
+            </a>
             <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
-                <a href="#about" class="hover:text-blue-600 transition">О компании</a>
-                <a href="#services" class="hover:text-blue-600 transition">Услуги</a>
-                <a href="#process" class="hover:text-blue-600 transition">Этапы работы</a>
-                <a href="#clients" class="hover:text-blue-600 transition">Клиенты</a>
-                <a href="#contacts" class="hover:text-blue-600 transition">Контакты</a>
+                <a href="index.html" class="hover:text-blue-600 transition text-blue-600">Главная</a>
+                <a href="services.html" class="hover:text-blue-600 transition">Услуги</a>
+                <a href="process.html" class="hover:text-blue-600 transition">Этапы</a>
+                <a href="clients.html" class="hover:text-blue-600 transition">Клиенты</a>
+                <a href="contacts.html" class="hover:text-blue-600 transition">Контакты</a>
             </nav>
             <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
                 <i data-lucide="phone" class="w-4 h-4"></i>
@@ -84,11 +83,11 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
             <nav class="container mx-auto px-6 py-4 flex flex-col gap-4 text-sm font-semibold text-slate-600">
-                <a href="#about" class="hover:text-blue-600 transition">О компании</a>
-                <a href="#services" class="hover:text-blue-600 transition">Услуги</a>
-                <a href="#process" class="hover:text-blue-600 transition">Этапы работы</a>
-                <a href="#clients" class="hover:text-blue-600 transition">Клиенты</a>
-                <a href="#contacts" class="hover:text-blue-600 transition">Контакты</a>
+                <a href="index.html" class="hover:text-blue-600 transition text-blue-600">Главная</a>
+                <a href="services.html" class="hover:text-blue-600 transition">Услуги</a>
+                <a href="process.html" class="hover:text-blue-600 transition">Этапы</a>
+                <a href="clients.html" class="hover:text-blue-600 transition">Клиенты</a>
+                <a href="contacts.html" class="hover:text-blue-600 transition">Контакты</a>
                 <a href="tel:+78123399299" class="flex items-center gap-2 text-blue-600">
                     <i data-lucide="phone" class="w-4 h-4"></i>
                     +7 (812) 339-92-99
@@ -108,13 +107,13 @@
                     Комплексные слаботочные системы <span class="text-blue-400">«под ключ»</span>
                 </h2>
                 <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
-                    От офиса и квартиры до целого предприятия. Обеспечиваем жизнедеятельность объекта и безопасность бизнеса: от консультации и проектирования до монтажа и сервисного обслуживания.
+                    От офиса и квартиры до целого предприятия. Обеспечиваем жизнедеятельность объекта и безопасность бизнеса.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#contacts" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 text-center">
+                    <a href="contacts.html" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 text-center">
                         Обсудить проект
                     </a>
-                    <a href="#services" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition text-center">
+                    <a href="services.html" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition text-center">
                         Наши услуги
                     </a>
                 </div>
@@ -127,7 +126,7 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Почему выбирают нас</h3>
-                <p class="text-slate-600 max-w-2xl mx-auto">Мы не просто устанавливаем оборудование, мы создаем надежную инфраструктуру для вашего бизнеса.</p>
+                <p class="text-slate-600 max-w-2xl mx-auto">Мы создаем надежную инфраструктуру для вашего бизнеса.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 card-hover">
@@ -135,14 +134,14 @@
                         <i data-lucide="shield-check" class="w-7 h-7"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Надежность и качество</h4>
-                    <p class="text-slate-600">Используем только проверенное оборудование. Имеем лицензию МЧС и сертификат ISO 9001:2015.</p>
+                    <p class="text-slate-600">Лицензия МЧС и сертификат ISO 9001:2015.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 card-hover">
                     <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="users" class="w-7 h-7"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Индивидуальный подход</h4>
-                    <p class="text-slate-600">Комплексное решение задач с уменьшением издержек заказчика.</p>
+                    <p class="text-slate-600">Комплексное решение задач с уменьшением издержек.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 card-hover">
                     <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
@@ -155,237 +154,146 @@
         </div>
     </section>
 
-    <!-- Услуги -->
+    <!-- Услуги (кратко) -->
     <section id="services" class="py-20 bg-slate-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Наши компетенции</h3>
-                <p class="text-slate-600">Полный спектр инженерных и слаботочных систем — 13 ключевых направлений</p>
+                <p class="text-slate-600">13 ключевых направлений</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="video" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Видеонаблюдение</h5>
-                    <p class="text-sm text-slate-500">Проектирование и монтаж IP- и аналоговых систем.</p>
+                    <p class="text-sm text-slate-500">Проектирование и монтаж.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="flame" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Пожарная безопасность</h5>
-                    <p class="text-sm text-slate-500">Охранно-пожарная сигнализация и оповещение.</p>
+                    <p class="text-sm text-slate-500">Охранно-пожарная сигнализация.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="fingerprint" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">СКУД и домофония</h5>
-                    <p class="text-sm text-slate-500">Контроль доступа и защита от протечек.</p>
+                    <h5 class="font-bold text-lg mb-2">СКУД</h5>
+                    <p class="text-sm text-slate-500">Контроль доступа.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
                     <i data-lucide="home" class="w-8 h-8 text-blue-600 mb-4"></i>
                     <h5 class="font-bold text-lg mb-2">Умный дом</h5>
-                    <p class="text-sm text-slate-500">HDL, Lutron, KNX, ABB.</p>
+                    <p class="text-sm text-slate-500">HDL, Lutron, KNX.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
-                    <i data-lucide="wind" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">Вентиляция</h5>
-                    <p class="text-sm text-slate-500">Приточно-вытяжные системы.</p>
+            </div>
+            <div class="text-center mt-12">
+                <a href="services.html" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                    Все 13 направлений <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЕГУЩАЯ СТРОКА С ЛОГОТИПАМИ (ИСПРАВЛЕННАЯ) -->
+    <section class="py-20 bg-slate-50 border-y border-slate-200 overflow-hidden">
+        <div class="container mx-auto px-6 mb-12 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Нам доверяют</h3>
+            <p class="text-slate-600">Крупнейшие компании России</p>
+        </div>
+        
+        <div class="relative w-full">
+            <div class="flex animate-marquee whitespace-nowrap">
+                <!-- ПЕРВЫЙ НАБОР -->
+                <div class="flex gap-8 pr-8">
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/severstal.webp" alt="Северсталь" class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                            Северсталь
+                        </div>
+                    </div>
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/eurotransstroy.webp" alt="ЕвроТрансСтрой" class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="hard-hat" class="w-6 h-6"></i>
+                            ЕвроТрансСтрой
+                        </div>
+                    </div>
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/rosmorport.webp" alt="Росморпорт" class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="anchor" class="w-6 h-6"></i>
+                            Росморпорт
+                        </div>
+                    </div>
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/carlsjr.webp" alt="Carl's Jr." class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="utensils" class="w-6 h-6"></i>
+                            Carl's Jr.
+                        </div>
+                    </div>
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/iem.webp" alt="ИЭМ" class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="flask-conical" class="w-6 h-6"></i>
+                            ИЭМ
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
-                    <i data-lucide="network" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">СКС и Wi-Fi</h5>
-                    <p class="text-sm text-slate-500">Структурированные кабельные сети.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
-                    <i data-lucide="zap" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">Электропитание</h5>
-                    <p class="text-sm text-slate-500">Системы бесперебойного питания.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
-                    <i data-lucide="volume-2" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">Речевое оповещение</h5>
-                    <p class="text-sm text-slate-500">Звукоусиление и трансляция.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
-                    <i data-lucide="phone" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">Телефония</h5>
-                    <p class="text-sm text-slate-500">Системы связи.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
-                    <i data-lucide="tv" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">ТВ</h5>
-                    <p class="text-sm text-slate-500">Эфирное и спутниковое.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
-                    <i data-lucide="droplets" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">Водоснабжение</h5>
-                    <p class="text-sm text-slate-500">ХВС, ГВС, водоотведение.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100">
-                    <i data-lucide="monitor" class="w-8 h-8 text-blue-600 mb-4"></i>
-                    <h5 class="font-bold text-lg mb-2">Компьютерные системы</h5>
-                    <p class="text-sm text-slate-500">ЛВС, серверы, ПО.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm card-hover border border-slate-100 sm:col-span-2 lg:col-span-4">
-                    <div class="flex items-start gap-4">
-                        <i data-lucide="drafting-compass" class="w-8 h-8 text-blue-600 flex-shrink-0 mt-1"></i>
-                        <div>
-                            <h5 class="font-bold text-lg mb-2">Проектирование и обслуживание</h5>
-                            <p class="text-sm text-slate-500">Разработка документации, пуско-наладка, техническое обслуживание.</p>
+                
+                <!-- ДУБЛИКАТ ДЛЯ БЕСШОВНОСТИ -->
+                <div class="flex gap-8 pr-8">
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/severstal.webp" alt="Северсталь" class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                            Северсталь
+                        </div>
+                    </div>
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/eurotransstroy.webp" alt="ЕвроТрансСтрой" class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="hard-hat" class="w-6 h-6"></i>
+                            ЕвроТрансСтрой
+                        </div>
+                    </div>
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/rosmorport.webp" alt="Росморпорт" class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="anchor" class="w-6 h-6"></i>
+                            Росморпорт
+                        </div>
+                    </div>
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/carlsjr.webp" alt="Carl's Jr." class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="utensils" class="w-6 h-6"></i>
+                            Carl's Jr.
+                        </div>
+                    </div>
+                    <div class="client-logo-wrapper bg-white px-10 py-6 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[220px] h-24">
+                        <img src="images/clients/iem.webp" alt="ИЭМ" class="max-h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden items-center gap-3 text-slate-700 font-bold text-lg">
+                            <i data-lucide="flask-conical" class="w-6 h-6"></i>
+                            ИЭМ
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Этапы работы -->
-    <section id="process" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Как мы работаем</h3>
-                <p class="text-slate-600">Прозрачный процесс от первой встречи до сдачи объекта</p>
-            </div>
-            <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-                    <h6 class="font-bold mb-2">Обследование</h6>
-                    <p class="text-xs text-slate-500">Анализ объекта</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-                    <h6 class="font-bold mb-2">Тех. решение</h6>
-                    <p class="text-xs text-slate-500">Концепция</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-                    <h6 class="font-bold mb-2">Проектирование</h6>
-                    <p class="text-xs text-slate-500">Документация</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
-                    <h6 class="font-bold mb-2">Монтаж</h6>
-                    <p class="text-xs text-slate-500">Работы</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">5</div>
-                    <h6 class="font-bold mb-2">Пуско-наладка</h6>
-                    <p class="text-xs text-slate-500">Тестирование</p>
-                </div>
-                <div class="text-center p-4">
-                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">6</div>
-                    <h6 class="font-bold mb-2">Обслуживание</h6>
-                    <p class="text-xs text-slate-500">Поддержка 24/7</p>
-                </div>
-            </div>
+        
+        <div class="text-center mt-12">
+            <a href="clients.html" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                Все клиенты <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
         </div>
     </section>
 
-    <!-- БЕГУЩАЯ СТРОКА КЛИЕНТОВ -->
-    <section id="clients" class="py-20 bg-slate-50 border-y border-slate-200 overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Нам доверяют</h3>
-                <p class="text-slate-600 max-w-2xl mx-auto">За годы работы мы получили множество положительных отзывов за высокий профессионализм и качество.</p>
-            </div>
-            
-            <div class="relative">
-                <div class="flex gap-8 animate-marquee whitespace-nowrap">
-                    <!-- Первый набор -->
-                    <div class="flex gap-8">
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="building-2" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">ПАО «Северсталь»</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="hard-hat" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">ЕвроТрансСтрой</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="anchor" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Росморпорт</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="utensils" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Carl's Jr.</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="flask-conical" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">ИЭМ</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="store" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Апраксин Двор</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="briefcase" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">НАРТ</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="truck" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Евразия-Снаб</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="hammer" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Севзапкурортстрой</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="shield" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">ПРОКАМИ</span>
-                        </div>
-                    </div>
-                    <!-- Дубликат для бесшовности -->
-                    <div class="flex gap-8">
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="building-2" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">ПАО «Северсталь»</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="hard-hat" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">ЕвроТрансСтрой</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="anchor" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Росморпорт</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="utensils" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Carl's Jr.</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="flask-conical" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">ИЭМ</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="store" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Апраксин Двор</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="briefcase" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">НАРТ</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="truck" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Евразия-Снаб</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="hammer" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">Севзапкурортстрой</span>
-                        </div>
-                        <div class="client-badge bg-white px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all inline-flex items-center gap-3">
-                            <i data-lucide="shield" class="w-5 h-5 text-slate-400"></i>
-                            <span class="font-bold text-slate-700 text-lg">ПРОКАМИ</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Контакты -->
+    <!-- Контакты (кратко) -->
     <section id="contacts" class="py-20 bg-slate-900 text-white">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
                     <h3 class="text-3xl font-bold mb-6">Свяжитесь с нами</h3>
-                    <p class="text-slate-400 mb-8">Готовы обсудить ваш проект? Оставьте заявку или позвоните нам.</p>
+                    <p class="text-slate-400 mb-8">Готовы обсудить ваш проект?</p>
                     
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
@@ -415,37 +323,32 @@
                                 <p class="text-slate-400 text-sm">office@systechnologies.ru</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="clock" class="w-5 h-5 text-blue-400"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-semibold mb-1">Режим работы</h5>
-                                <p class="text-slate-400 text-sm">Пн-Пт: 9:00 - 18:00</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
-                <!-- Форма -->
+                <!-- Форма С FORMSPREE (замените URL) -->
                 <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700">
                     <h4 class="text-xl font-bold mb-6">Оставить заявку</h4>
-                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами.');">
+                    <!-- ЗАМЕНИТЕ https://formspree.io/f/ВАШ_ID на ваш реальный URL -->
+                    <form action="https://formspree.io/f/ВАШ_FORMSPREE_ID" method="POST" class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-slate-400 mb-1">Ваше имя</label>
-                            <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Иван Bigдикович">
+                            <input type="text" name="name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Иван Иванов">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-400 mb-1">Телефон</label>
-                            <input type="tel" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="+7 (___) ___-__-__">
+                            <div class="flex items-center bg-slate-900 border border-slate-700 rounded-lg overflow-hidden focus-within:border-blue-500 transition">
+                                <span class="pl-4 pr-2 text-slate-400 font-medium select-none border-r border-slate-700 py-3">+7</span>
+                                <input type="tel" name="phone" required class="flex-1 bg-transparent py-3 px-3 text-white focus:outline-none" placeholder="(999) 123-45-67">
+                            </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-400 mb-1">Email</label>
-                            <input type="email" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="example@mail.ru">
+                            <input type="email" name="email" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="example@mail.ru">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-400 mb-1">Сообщение</label>
-                            <textarea rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Расскажите о вашем проекте..."></textarea>
+                            <textarea name="message" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Расскажите о вашем проекте..."></textarea>
                         </div>
                         <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
                             Отправить заявку
@@ -467,6 +370,7 @@
     <script>
         lucide.createIcons();
         
+        // Мобильное меню
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -477,20 +381,6 @@
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
             });
         });
     </script>
