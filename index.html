@@ -193,7 +193,7 @@
 
     <!-- БЕГУЩАЯ СТРОКА С ЛОГОТИПАМИ (ИСПРАВЛЕННАЯ) -->
     <section class="py-20 bg-slate-50 border-y border-slate-200 overflow-hidden">
-       <!-- БЕГУЩАЯ СТРОКА С ЛОГОТИПАМИ (ВСЕ 10 КЛИЕНТОВ) -->
+       <!-- БЕГУЩАЯ СТРОКА С КЛИЕНТАМИ (ТЕКСТ + ИКОНКИ) -->
 <section class="py-20 bg-slate-50 border-y border-slate-200 overflow-hidden">
     <div class="container mx-auto px-6 mb-12 text-center">
         <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Нам доверяют</h3>
@@ -204,149 +204,89 @@
         <div class="flex animate-marquee">
             <!-- ПЕРВЫЙ НАБОР (ВСЕ 10 КЛИЕНТОВ) -->
             <div class="flex gap-6 pr-6 flex-shrink-0">
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/severstal.webp" alt="Северсталь" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="building-2" class="w-5 h-5"></i>
-                        Северсталь
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="building-2" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Северсталь</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/eurotransstroy.webp" alt="ЕвроТрансСтрой" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="hard-hat" class="w-5 h-5"></i>
-                        ЕвроТрансСтрой
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="hard-hat" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">ЕвроТрансСтрой</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-6 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[180px] h-20">
-                    <img src="images/rosmorport.webp" alt="Росморпорт" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="anchor" class="w-5 h-5"></i>
-                        Росморпорт
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="anchor" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Росморпорт</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/carlsjr.webp" alt="Carl's Jr." class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="utensils" class="w-5 h-5"></i>
-                        Carl's Jr.
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="utensils" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Carl's Jr.</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/iem.webp" alt="ИЭМ" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="flask-conical" class="w-5 h-5"></i>
-                        ИЭМ
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="flask-conical" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">ИЭМ</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/prokami.webp" alt="ПРОКАМИ" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="briefcase" class="w-5 h-5"></i>
-                        ПРОКАМИ
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="briefcase" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">ПРОКАМИ</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/apraksin.webp" alt="Апраксин Двор" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="store" class="w-5 h-5"></i>
-                        Апраксин Двор
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="store" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Апраксин Двор</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/nart.webp" alt="НАРТ" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="shield" class="w-5 h-5"></i>
-                        НАРТ
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="shield" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">НАРТ</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/evrazia.webp" alt="Евразия-Снаб" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="truck" class="w-5 h-5"></i>
-                        Евразия-Снаб
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="truck" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Евразия-Снаб</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/sevzap.webp" alt="Севзапкурортстрой" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="hammer" class="w-5 h-5"></i>
-                        Севзапкурортстрой
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="hammer" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Севзапкурортстрой</span>
                 </div>
             </div>
             
             <!-- ДУБЛИКАТ (ВСЕ 10 КЛИЕНТОВ) -->
             <div class="flex gap-6 pr-6 flex-shrink-0">
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/severstal.webp" alt="Северсталь" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="building-2" class="w-5 h-5"></i>
-                        Северсталь
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="building-2" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Северсталь</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/eurotransstroy.webp" alt="ЕвроТрансСтрой" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="hard-hat" class="w-5 h-5"></i>
-                        ЕвроТрансСтрой
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="hard-hat" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">ЕвроТрансСтрой</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-6 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[180px] h-20">
-                    <img src="images/rosmorport.webp" alt="Росморпорт" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="anchor" class="w-5 h-5"></i>
-                        Росморпорт
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="anchor" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Росморпорт</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/carlsjr.webp" alt="Carl's Jr." class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="utensils" class="w-5 h-5"></i>
-                        Carl's Jr.
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="utensils" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Carl's Jr.</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/iem.webp" alt="ИЭМ" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="flask-conical" class="w-5 h-5"></i>
-                        ИЭМ
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="flask-conical" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">ИЭМ</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/prokami.webp" alt="ПРОКАМИ" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="briefcase" class="w-5 h-5"></i>
-                        ПРОКАМИ
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="briefcase" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">ПРОКАМИ</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/apraksin.webp" alt="Апраксин Двор" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="store" class="w-5 h-5"></i>
-                        Апраксин Двор
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="store" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Апраксин Двор</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/nart.webp" alt="НАРТ" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="shield" class="w-5 h-5"></i>
-                        НАРТ
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="shield" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">НАРТ</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/evrazia.webp" alt="Евразия-Снаб" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="truck" class="w-5 h-5"></i>
-                        Евразия-Снаб
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="truck" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Евразия-Снаб</span>
                 </div>
-                <div class="client-logo-wrapper bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[200px] h-20">
-                    <img src="images/sevzap.webp" alt="Севзапкурортстрой" class="max-h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="hidden items-center gap-2 text-slate-700 font-bold">
-                        <i data-lucide="hammer" class="w-5 h-5"></i>
-                        Севзапкурортстрой
-                    </div>
+                <div class="client-badge bg-white px-8 py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center gap-3 min-w-[220px] justify-center">
+                    <i data-lucide="hammer" class="w-6 h-6 text-blue-600"></i>
+                    <span class="font-bold text-slate-700">Севзапкурортстрой</span>
                 </div>
             </div>
         </div>
