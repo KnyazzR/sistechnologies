@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видеонаблюдение | Системные Технологии</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Навигация -->
+    <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3">
+                <img src="../images/logo.webp" alt="Системные Технологии" class="h-12 w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100">
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Системные<br>Технологии</h1>
+                </div>
+            </a>
+            <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
+                <a href="../index.html" class="hover:text-blue-600 transition">Главная</a>
+                <a href="../services.html" class="hover:text-blue-600 transition text-blue-600">Услуги</a>
+                <a href="../process.html" class="hover:text-blue-600 transition">Этапы</a>
+                <a href="../clients.html" class="hover:text-blue-600 transition">Клиенты</a>
+                <a href="../contacts.html" class="hover:text-blue-600 transition">Контакты</a>
+            </nav>
+            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                +7 (812) 339-92-99
+            </a>
+        </div>
+    </header>
+
+    <!-- Заголовок -->
+    <section class="pt-32 pb-16 bg-white">
+        <div class="container mx-auto px-6">
+            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-600 hover:gap-3 transition-all mb-6">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                Назад к услугам
+            </a>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Видеонаблюдение</h1>
+            <p class="text-xl text-slate-600 max-w-3xl">Проектирование и монтаж систем видеонаблюдения любой сложности</p>
+        </div>
+    </section>
+
+    <!-- Описание -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl">
+                <h2 class="text-3xl font-bold mb-6">Что мы предлагаем</h2>
+                <div class="space-y-4 text-slate-600 text-lg">
+                    <p>Мы проектируем и монтируем системы видеонаблюдения для объектов любого масштаба — от небольших офисов до крупных промышленных предприятий.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-900 mt-8">Наши решения включают:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                            <span>IP-камеры высокого разрешения с удаленным доступом</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                            <span>Аналоговые системы видеонаблюдения</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                            <span>Интеграция с системами безопасности и СКУД</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                            <span>Видеоаналитика и распознавание образов</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                            <span>Удаленный мониторинг через мобильные приложения</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-12 p-8 bg-white rounded-xl border border-slate-200">
+                    <h3 class="text-2xl font-bold mb-4">Почему выбирают нас</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-2">✅ Опыт с 2007 года</h4>
+                            <p class="text-slate-600">Более 15 лет успешной работы в сфере видеонаблюдения</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">✅ Лицензия МЧС</h4>
+                            <p class="text-slate-600">Все необходимые разрешения и сертификаты</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">✅ Гарантия качества</h4>
+                            <p class="text-slate-600">Используем только проверенное оборудование</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">✅ Техническая поддержка</h4>
+                            <p class="text-slate-600">Обслуживание систем после установки</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="../contacts.html" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+                        Обсудить проект
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
+            <p class="text-xs mt-2">190020, Санкт-Петербург, ул. Бумажная, д. 16, к.1 литера А, пом. 26Н | ИНН 7838380554</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
