@@ -62,15 +62,6 @@
             box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.2);
         }
 
-        /* Слот-машина */
-        @keyframes spin1 { 0% { transform: translateY(0); } 100% { transform: translateY(-4864px); } }
-        @keyframes spin2 { 0% { transform: translateY(0); } 100% { transform: translateY(-4864px); } }
-        @keyframes spin3 { 0% { transform: translateY(0); } 100% { transform: translateY(-4864px); } }
-        
-        .spinning-fast { animation: spin1 8s cubic-bezier(0.15, 0.85, 0.35, 1) forwards; }
-        .spinning { animation: spin2 10s cubic-bezier(0.15, 0.85, 0.35, 1) forwards; }
-        .spinning-slow { animation: spin3 12s cubic-bezier(0.15, 0.85, 0.35, 1) forwards; }
-
         /* Мобильное меню - анимация */
         #mobile-menu {
             max-height: 0;
@@ -108,7 +99,7 @@
         /* Увеличенные touch-зоны */
         @media (max-width: 768px) {
             .touch-target { min-height: 44px; min-width: 44px; }
-            input, textarea, select { font-size: 16px !important; } /* Предотвращает zoom на iOS */
+            input, textarea, select { font-size: 16px !important; }
         }
 
         /* Улучшенная форма */
@@ -267,7 +258,7 @@
         </div>
     </section>
 
-    <!-- БЕГУЩАЯ СТРОКА С КЛИЕНТАМИ -->
+    <!-- БЕГУЩАЯ СТРОКА С КЛИЕНТАМИ (ВСЕ 10) -->
     <section class="py-12 md:py-20 bg-slate-50 border-y border-slate-200 overflow-hidden">
         <div class="container mx-auto px-4 md:px-6 mb-8 md:mb-12 text-center">
             <h3 class="text-2xl md:text-4xl font-bold text-slate-900 mb-2 md:mb-4">Нам доверяют</h3>
@@ -278,68 +269,68 @@
             <div class="flex animate-marquee">
                 <!-- ПЕРВЫЙ НАБОР -->
                 <div class="flex gap-3 md:gap-6 pr-3 md:pr-6 flex-shrink-0">
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Северсталь</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">ЕвроТрансСтрой</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Росморпорт</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Carl's Jr.</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">ИЭМ</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">ПРОКАМИ</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Апраксин Двор</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">НАРТ</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Евразия-Снаб</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Севзапкурортстрой</span>
                     </div>
                 </div>
                 
                 <!-- ДУБЛИКАТ -->
                 <div class="flex gap-3 md:gap-6 pr-3 md:pr-6 flex-shrink-0">
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Северсталь</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">ЕвроТрансСтрой</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Росморпорт</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Carl's Jr.</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">ИЭМ</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">ПРОКАМИ</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Апраксин Двор</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">НАРТ</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Евразия-Снаб</span>
                     </div>
-                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm inline-flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
+                    <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Севзапкурортстрой</span>
                     </div>
                 </div>
@@ -352,123 +343,6 @@
             </a>
         </div>
     </section>
-
-    <!-- 🎰 СЛОТ-МАШИНА СО СКИДКОЙ -->
-    <section class="py-12 md:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-8 md:mb-12">
-                <h2 class="text-2xl md:text-5xl font-bold mb-3 md:mb-4"> Испытай удачу!</h2>
-                <p class="text-base md:text-xl text-blue-200">Крути барабаны и получи скидку 10% на любой проект</p>
-            </div>
-
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-slate-800 rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-2xl border-4 border-yellow-500">
-                    <div class="grid grid-cols-3 gap-2 md:gap-4 mb-6 md:mb-8">
-                        <!-- Барабан 1 -->
-                        <div class="relative h-40 md:h-64 bg-white rounded-lg md:rounded-xl overflow-hidden border-2 md:border-4 border-slate-700">
-                            <div id="reel1" class="absolute w-full" style="transform: translateY(0);">
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🏭</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🏗️</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl"></span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🍔</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🔬</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">💼</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🏪</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🛡️</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🚚</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🔨</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl"></span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">💎</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🏭</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">⭐</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🏆</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🔬</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">⚓</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🍔</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl"></span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center"><span class="text-4xl md:text-6xl">💼</span></div>
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/30 pointer-events-none"></div>
-                        </div>
-
-                        <!-- Барабан 2 -->
-                        <div class="relative h-40 md:h-64 bg-white rounded-lg md:rounded-xl overflow-hidden border-2 md:border-4 border-slate-700">
-                            <div id="reel2" class="absolute w-full" style="transform: translateY(0);">
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">💼</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🏪</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">️</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🚚</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🔨</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🏭</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">️</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">⚓</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🍔</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🔬</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🎁</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">💎</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🏆</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">⭐</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">💼</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl"></span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🛡️</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🚚</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-slate-200"><span class="text-4xl md:text-6xl">🔨</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center"><span class="text-4xl md:text-6xl">🏭</span></div>
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/30 pointer-events-none"></div>
-                        </div>
-
-                        <!-- Барабан 3 -->
-                        <div class="relative h-40 md:h-64 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg md:rounded-xl overflow-hidden border-2 md:border-4 border-yellow-600 shadow-lg">
-                            <div id="reel3" class="absolute w-full" style="transform: translateY(0);">
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🎁</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">💎</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🏆</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">⭐</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🏭</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🏗️</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl"></span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🍔</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🔬</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">💼</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🏪</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🛡️</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🚚</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🔨</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🎁</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">💎</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🏆</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">⭐</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center border-b border-white/30"><span class="text-4xl md:text-6xl">🏭</span></div>
-                                <div class="h-40 md:h-64 flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800">
-                                    <img src="images/logo.webp" alt="Системные Технологии" class="w-20 h-20 md:w-32 md:h-32 object-contain rounded-full shadow-lg">
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/30 pointer-events-none"></div>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <button id="spinBtn" onclick="spinSlots()" class="bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold text-xl md:text-2xl px-8 md:px-12 py-3 md:py-4 rounded-full shadow-lg transform hover:scale-105 transition-all border-4 border-yellow-400 cursor-pointer touch-target w-full md:w-auto">
-                            🎰 КРУТИТЬ! 🎰
-                        </button>
-                    </div>
-
-                    <div id="result" class="hidden mt-6 md:mt-8 text-center">
-                        <div id="resultContent" class="rounded-2xl p-6 md:p-8 shadow-2xl border-4">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-6 md:mt-8 text-blue-200">
-                    <p class="text-xs md:text-sm">Нажмите кнопку и испытайте удачу! Скидка действительна при обращении в течение 7 дней.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Конфетти -->
-    <canvas id="confetti" class="fixed inset-0 pointer-events-none z-50 hidden"></canvas>
 
     <!-- Контакты -->
     <section id="contacts" class="py-12 md:py-20 bg-slate-900 text-white">
@@ -554,22 +428,23 @@
     </a>
 
     <script>
+        // Инициализация иконок Lucide
         lucide.createIcons();
         
+        // Мобильное меню - исправленный JS
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        let menuOpen = false;
         
         mobileMenuBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
+            // Переключаем класс открытия самого меню (для max-height)
             mobileMenu.classList.toggle('open');
+            // Переключаем класс на кнопке (для анимации линий в крестик)
             mobileMenuBtn.classList.toggle('menu-open');
         });
         
         // Закрытие меню при клике на ссылку
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                menuOpen = false;
                 mobileMenu.classList.remove('open');
                 mobileMenuBtn.classList.remove('menu-open');
             });
@@ -577,138 +452,11 @@
 
         // Закрытие меню при клике вне его
         document.addEventListener('click', (e) => {
-            if (menuOpen && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                menuOpen = false;
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                 mobileMenu.classList.remove('open');
                 mobileMenuBtn.classList.remove('menu-open');
             }
         });
-
-        // Слот-машина
-        let isSpinning = false;
-
-        function spinSlots() {
-            if (isSpinning) return;
-            isSpinning = true;
-
-            const btn = document.getElementById('spinBtn');
-            const result = document.getElementById('result');
-            const resultContent = document.getElementById('resultContent');
-            const reel1 = document.getElementById('reel1');
-            const reel2 = document.getElementById('reel2');
-            const reel3 = document.getElementById('reel3');
-
-            result.classList.add('hidden');
-            btn.disabled = true;
-            btn.classList.add('opacity-50', 'cursor-not-allowed');
-            btn.textContent = '🎰 Крутим... 🎰';
-
-            reel1.className = 'absolute w-full';
-            reel2.className = 'absolute w-full';
-            reel3.className = 'absolute w-full';
-            reel1.style.transform = 'translateY(0)';
-            reel2.style.transform = 'translateY(0)';
-            reel3.style.transform = 'translateY(0)';
-
-            const isJackpot = Math.random() < 0.2;
-            let finalSymbol1, finalSymbol2, finalSymbol3;
-            
-            if (isJackpot) {
-                const symbols = ['🏭', '🏗️', '⚓', '🍔', '🔬', '', '🏪', '🛡️', '🚚', '🔨', '🎁', '💎', '🏆', '⭐'];
-                const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-                finalSymbol1 = finalSymbol2 = finalSymbol3 = randomSymbol;
-            } else {
-                const symbols = ['🏭', '🏗️', '⚓', '🍔', '', '💼', '🏪', '🛡️', '🚚', '🔨', '🎁', '💎', '🏆', '⭐'];
-                finalSymbol1 = symbols[Math.floor(Math.random() * symbols.length)];
-                finalSymbol2 = symbols[Math.floor(Math.random() * symbols.length)];
-                finalSymbol3 = symbols[Math.floor(Math.random() * symbols.length)];
-                
-                while (finalSymbol1 === finalSymbol2 && finalSymbol2 === finalSymbol3) {
-                    finalSymbol3 = symbols[Math.floor(Math.random() * symbols.length)];
-                }
-            }
-
-            setTimeout(() => { reel1.classList.add('spinning-fast'); }, 50);
-            setTimeout(() => { reel2.classList.add('spinning'); }, 50);
-            setTimeout(() => { reel3.classList.add('spinning-slow'); }, 50);
-
-            setTimeout(() => {
-                if (isJackpot) {
-                    resultContent.className = 'bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl p-6 md:p-8 shadow-2xl border-4 border-yellow-600';
-                    resultContent.innerHTML = `
-                        <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 text-white drop-shadow-lg">🎉 ДЖЕКПОТ! </h3>
-                        <p class="text-lg md:text-2xl mb-3 md:mb-4 text-white">Вы выиграли скидку <span class="text-3xl md:text-5xl font-bold">10%</span></p>
-                        <p class="text-sm md:text-lg mb-4 md:mb-6 text-white/90">на любой проект компании "Системные Технологии"!</p>
-                        <a href="contacts.html" class="inline-block bg-white text-blue-900 font-bold text-base md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-blue-100 transition shadow-lg touch-target">
-                            Получить скидку →
-                        </a>
-                    `;
-                    launchConfetti();
-                } else {
-                    resultContent.className = 'bg-gradient-to-r from-slate-700 to-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl border-4 border-slate-600';
-                    resultContent.innerHTML = `
-                        <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4 text-white">😔 Не повезло!</h3>
-                        <p class="text-base md:text-xl mb-3 md:mb-4 text-slate-300">Выпало: <span class="text-2xl md:text-4xl">${finalSymbol1} ${finalSymbol2} ${finalSymbol3}</span></p>
-                        <p class="text-sm md:text-lg mb-4 md:mb-6 text-slate-400">Попробуйте ещё раз — удача обязательно улыбнётся!</p>
-                        <button onclick="document.getElementById('result').classList.add('hidden')" class="inline-block bg-slate-600 text-white font-bold text-base md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-slate-700 transition touch-target">
-                            Попробовать снова
-                        </button>
-                    `;
-                }
-                
-                result.classList.remove('hidden');
-                btn.disabled = false;
-                btn.classList.remove('opacity-50', 'cursor-not-allowed');
-                btn.textContent = '🎰 КРУТИТЬ ЕЩЁ! 🎰';
-                isSpinning = false;
-            }, 12500);
-        }
-
-        function launchConfetti() {
-            const canvas = document.getElementById('confetti');
-            canvas.classList.remove('hidden');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const pieces = [];
-            const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8'];
-
-            for (let i = 0; i < 150; i++) {
-                pieces.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height - canvas.height,
-                    w: Math.random() * 10 + 5,
-                    h: Math.random() * 10 + 5,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    speed: Math.random() * 3 + 2,
-                    angle: Math.random() * 360,
-                    spin: Math.random() * 10 - 5
-                });
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                pieces.forEach(p => {
-                    p.y += p.speed;
-                    p.angle += p.spin;
-                    ctx.save();
-                    ctx.translate(p.x, p.y);
-                    ctx.rotate(p.angle * Math.PI / 180);
-                    ctx.fillStyle = p.color;
-                    ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-                    ctx.restore();
-                    if (p.y > canvas.height) {
-                        p.y = -10;
-                        p.x = Math.random() * canvas.width;
-                    }
-                });
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-            setTimeout(() => { canvas.classList.add('hidden'); }, 5000);
-        }
     </script>
 </body>
 </html>
