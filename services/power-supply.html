@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электропитание | Системные Технологии</title>
+    <meta name="description" content="Проектирование и монтаж систем электропитания, ИБП, генераторов, заземления и молниезащиты для объектов любой сложности.">
+    <link rel="icon" type="image/webp" href="../images/logo.webp">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideDown 0.3s;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .touch-target { min-height: 44px; min-width: 44px; }
+            input, textarea, select { font-size: 16px !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Навигация -->
+    <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
+        <div class="container mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2 md:gap-3">
+                <img src="../images/logo.webp" alt="Системные Технологии" class="h-10 w-10 md:h-12 md:w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100">
+                <div>
+                    <h1 class="text-base md:text-xl font-bold text-slate-900 leading-tight">Системные<br class="md:hidden">Технологии</h1>
+                </div>
+            </a>
+            <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
+                <a href="../index.html" class="hover:text-blue-600 transition">Главная</a>
+                <a href="../services.html" class="hover:text-blue-600 transition text-blue-600">Услуги</a>
+                <a href="../process.html" class="hover:text-blue-600 transition">Этапы</a>
+                <a href="../clients.html" class="hover:text-blue-600 transition">Клиенты</a>
+                <a href="../contacts.html" class="hover:text-blue-600 transition">Контакты</a>
+            </nav>
+            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20 touch-target">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                +7 (812) 339-92-99
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden p-2 touch-target w-11 h-11 flex flex-col justify-center items-center">
+                <span class="block w-6 h-0.5 bg-slate-900 mb-1.5"></span>
+                <span class="block w-6 h-0.5 bg-slate-900 mb-1.5"></span>
+                <span class="block w-6 h-0.5 bg-slate-900"></span>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <nav class="container mx-auto px-4 py-4 flex flex-col gap-1 text-base font-semibold text-slate-600">
+                <a href="../index.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
+                    <i data-lucide="home" class="w-5 h-5 mr-3"></i>Главная
+                </a>
+                <a href="../services.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 text-blue-600 touch-target flex items-center">
+                    <i data-lucide="briefcase" class="w-5 h-5 mr-3"></i>Услуги
+                </a>
+                <a href="../process.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
+                    <i data-lucide="list-checks" class="w-5 h-5 mr-3"></i>Этапы работы
+                </a>
+                <a href="../clients.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
+                    <i data-lucide="users" class="w-5 h-5 mr-3"></i>Клиенты
+                </a>
+                <a href="../contacts.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
+                    <i data-lucide="mail" class="w-5 h-5 mr-3"></i>Контакты
+                </a>
+                <a href="tel:+78123399299" class="mt-3 flex items-center justify-center gap-2 bg-blue-600 text-white py-3.5 rounded-full font-semibold touch-target">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    +7 (812) 339-92-99
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Заголовок страницы -->
+    <section class="pt-28 md:pt-32 pb-12 md:pb-16 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-600 hover:gap-3 transition-all mb-4 md:mb-6 touch-target">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                <span class="text-sm md:text-base">Назад к услугам</span>
+            </a>
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center">
+                    <i data-lucide="zap" class="w-8 h-8 md:w-9 md:h-9"></i>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold text-slate-900">Электропитание</h1>
+            </div>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl">
+                Системы электроснабжения и бесперебойного питания. Гарантируем надёжное электропитание критически важного оборудования 24/7.
+            </p>
+        </div>
+    </section>
+
+    <!-- Основное описание -->
+    <section class="py-12 md:py-20 bg-slate-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-slate-900">Надёжное электропитание — основа бизнеса</h2>
+                <p class="text-base md:text-lg text-slate-600 mb-6 leading-relaxed">
+                    Перебои в электроснабжении могут привести к потере данных, остановке производства, выходу из строя дорогостоящего оборудования и финансовым убыткам. Мы проектируем и монтируем системы электропитания, которые обеспечивают бесперебойную работу вашего бизнеса.
+                </p>
+                <p class="text-base md:text-lg text-slate-600 leading-relaxed">
+                    Работаем с объектами любой сложности: от небольших серверных до крупных промышленных предприятий и дата-центров.
+                </p>
+
+                <!-- Статистика -->
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center">
+                        <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                        <p class="text-xs md:text-sm text-slate-500">Бесперебойная работа</p>
+                    </div>
+                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center">
+                        <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">99.9%</div>
+                        <p class="text-xs md:text-sm text-slate-500">Надёжность систем</p>
+                    </div>
+                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center">
+                        <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">0 мс</div>
+                        <p class="text-xs md:text-sm text-slate-500">Время переключения</p>
+                    </div>
+                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center">
+                        <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">15+ лет</div>
+                        <p class="text-xs md:text-sm text-slate-500">Опыт работы</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Виды систем -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center">Виды систем электропитания</h2>
+                <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="battery" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Источники бесперебойного питания (ИБП)</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Online, line-interactive и off-line ИБП различной мощности. Защита от провалов, импульсов и полного отключения электроэнергии.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="fuel" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Дизельные и газовые генераторы</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Резервные и основные источники электроснабжения. Автоматический запуск при пропадании основной сети (АВР).</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="gauge" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Стабилизаторы напряжения</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Электронные, релейные и сервоприводные стабилизаторы. Защита от скачков и просадок напряжения.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="git-merge" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Системы АВР</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Автоматический ввод резерва. Мгновенное переключение на резервный источник питания.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="layout-list" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Распределительные щиты</h3>
+                        <p class="text-slate-600 text-sm md:text-base">ВРУ, ГРЩ, ЩА, ЩС, ЩО. Проектирование и сборка щитов любой сложности.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="monitor-dot" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Системы мониторинга</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Контроль параметров электросети, удалённый мониторинг, оповещение об авариях.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Заземление и молниезащита -->
+    <section class="py-12 md:py-20 bg-slate-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center">Заземление и молниезащита</h2>
+                <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="p-6 bg-white rounded-xl border border-slate-200 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="arrow-down-to-line" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Рабочее заземление</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Заземление нейтрали трансформаторов и генераторов для нормальной работы электроустановок.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl border border-slate-200 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="shield" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Защитное заземление</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Заземление корпусов оборудования для защиты людей от поражения электрическим током.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl border border-slate-200 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="zap-off" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Молниеприёмники</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Стержневые, тросовые и сетчатые молниеприёмники для защиты зданий и сооружений.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl border border-slate-200 card-hover">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="cable" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Токоотводы и заземлители</h3>
+                        <p class="text-slate-600 text-sm md:text-base">Модульные, электролитические и традиционные заземлители. Измерение сопротивления.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-xl">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="info" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1 text-blue-900">Важно знать</h4>
+                            <p class="text-blue-800 text-sm md:text-base">Согласно ПУЭ и нормативным документам, все объекты должны иметь систему заземления и молниезащиты. Мы выполняем полный комплекс работ: от проектирования до сдачи в эксплуатацию с предоставлением протоколов измерений.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Этапы работы -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center">Этапы реализации проекта</h2>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Аудит существующей системы</h4>
+                            <p class="text-slate-600 text-sm md:text-base">Анализ текущей системы электропитания, выявление проблем, оценка нагрузок.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Проектирование</h4>
+                            <p class="text-slate-600 text-sm md:text-base">Расчёт нагрузок, подбор оборудования, разработка однолинейных схем и рабочей документации.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Поставка оборудования</h4>
+                            <p class="text-slate-600 text-sm md:text-base">Работаем с ведущими производителями: APC, Eaton, Ippon, Powercom, Штиль, Generac и другими.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Монтажные работы</h4>
+                            <p class="text-slate-600 text-sm md:text-base">Установка ИБП, генераторов, щитов, прокладка кабелей, монтаж заземления.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Пуско-наладка и испытания</h4>
+                            <p class="text-slate-600 text-sm md:text-base">Настройка систем, тестирование в различных режимах, измерение сопротивления заземления.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">6</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Сервисное обслуживание</h4>
+                            <p class="text-slate-600 text-sm md:text-base">Регулярная проверка, замена батарей, профилактика, оперативный ремонт.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <button onclick="openModal()" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 touch-target inline-flex items-center gap-2">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                        Заказать расчёт
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Заявка на электропитание</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 touch-target w-10 h-10 flex items-center justify-center">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <form action="https://formspree.io/f/ВАШ_FORMSPREE_ID" method="POST" class="space-y-4">
+                <input type="hidden" name="service" value="Электропитание">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
+                    <input type="text" name="name" required class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="Иван Иванов">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Телефон</label>
+                    <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500">
+                        <span class="pl-4 pr-2 text-slate-500 font-medium select-none border-r border-slate-200 py-3">+7</span>
+                        <input type="tel" name="phone" required inputmode="tel" class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                    <input type="email" name="email" class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="example@mail.ru">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Расскажите о задаче</label>
+                    <textarea name="message" rows="3" class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="Тип объекта, мощность, требования к надёжности..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition touch-target">
+                    Отправить заявку
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-6 md:py-8 border-t border-slate-800">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <p class="text-xs md:text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
+            <p class="text-xs mt-2">190020, Санкт-Петербург, ул. Бумажная, д. 16, к.1 литера А, пом. 26Н | ИНН 7838380554</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        function openModal() {
+            document.getElementById('requestModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('requestModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('requestModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
