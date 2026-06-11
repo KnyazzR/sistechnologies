@@ -16,27 +16,6 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 500px;
-            animation: slideDown 0.3s;
-        }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -72,105 +51,157 @@
                 Назад к услугам
             </a>
             <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Пожарная безопасность</h1>
-            <p class="text-xl text-slate-600 max-w-3xl">Охранно-пожарная сигнализация, системы оповещения и управления эвакуацией</p>
+            <p class="text-xl text-slate-600 max-w-3xl">Охранно-пожарная сигнализация, системы оповещения и управления эвакуацией. Защита вашего объекта 24/7.</p>
+        </div>
+    </section>
+
+    <!-- Статистика -->
+    <section class="py-12 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+                    <div class="text-slate-600">Лет опыта</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
+                    <div class="text-slate-600">Объектов</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                    <div class="text-slate-600">Мониторинг</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">100%</div>
+                    <div class="text-slate-600">Гарантия</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Описание -->
-    <section class="py-16 bg-slate-50">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl">
-                <h2 class="text-3xl font-bold mb-6">Что мы предлагаем</h2>
-                <div class="space-y-4 text-slate-600 text-lg">
-                    <p>Мы проектируем и монтируем системы пожарной безопасности для объектов любого типа — от небольших офисов до крупных промышленных предприятий.</p>
-                    
-                    <h3 class="text-xl font-bold text-slate-900 mt-8">Наши решения включают:</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
-                            <span>Охранно-пожарная сигнализация с датчиками дыма и тепла</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
-                            <span>Системы речевого оповещения и управления эвакуацией</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
-                            <span>Автоматические системы пожаротушения</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
-                            <span>Интеграция с системами видеонаблюдения и СКУД</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
-                            <span>Техническое обслуживание и проверка систем</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="mt-12 p-8 bg-white rounded-xl border border-slate-200">
-                    <h3 class="text-2xl font-bold mb-4">Почему выбирают нас</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-bold mb-2">✅ Лицензия МЧС</h4>
-                            <p class="text-slate-600">№78-Б/00649 от 24 февраля 2010 г.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-2">✅ Опыт с 2007 года</h4>
-                            <p class="text-slate-600">Более 15 лет успешной работы</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-2">✅ Гарантия качества</h4>
-                            <p class="text-slate-600">Используем только сертифицированное оборудование</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-2">✅ Техническая поддержка</h4>
-                            <p class="text-slate-600">Обслуживание систем после установки</p>
-                        </div>
+                <h2 class="text-3xl font-bold mb-6">Комплексные решения для пожарной безопасности</h2>
+                <p class="text-lg text-slate-600 mb-8">Мы проектируем и монтируем системы пожарной безопасности для объектов любого типа — от небольших офисов до крупных промышленных предприятий.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700">Лицензия МЧС №78-Б/00649</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700">Сертифицированное оборудование</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700">Гарантия и техподдержка</span>
                     </div>
                 </div>
 
-                <div class="mt-12 text-center">
-                    <button onclick="openModal()" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 cursor-pointer">
-                        Оставить заявку
-                    </button>
+                <div class="bg-slate-50 p-8 rounded-2xl">
+                    <img src="../images/solutions/fire-safety-large.webp" alt="Пожарная безопасность" class="w-full h-64 object-cover rounded-lg mb-6">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
+                        <div class="text-slate-600">Успешных проектов по всей России</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Модальное окно -->
-    <div id="requestModal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Оставить заявку</h3>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
+    <!-- Наши решения -->
+    <section id="solutions" class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Наши решения</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Охранно-пожарная сигнализация -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <img src="../images/solutions/fire-alarm.webp" alt="Охранно-пожарная сигнализация" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-bold text-lg mb-2">Охранно-пожарная сигнализация</h3>
+                    <p class="text-slate-600">Современные датчики дыма, тепла и пламени. Мгновенное оповещение о возгорании.</p>
+                </div>
+
+                <!-- Системы оповещения -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <img src="../images/solutions/evacuation.webp" alt="Системы оповещения" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-bold text-lg mb-2">Системы оповещения</h3>
+                    <p class="text-slate-600">Речевое оповещение и управление эвакуацией. Световые табло "Выход".</p>
+                </div>
+
+                <!-- Автоматическое пожаротушение -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <img src="../images/solutions/fire-suppression.webp" alt="Автоматическое пожаротушение" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-bold text-lg mb-2">Автоматическое пожаротушение</h3>
+                    <p class="text-slate-600">Спринклерные и газовые системы. Быстрое тушение без участия человека.</p>
+                </div>
+
+                <!-- Интеграция с видеонаблюдением -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <img src="../images/solutions/security-integration.webp" alt="Интеграция с видеонаблюдением" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-bold text-lg mb-2">Интеграция с видеонаблюдением</h3>
+                    <p class="text-slate-600">Объединение с системами безопасности и контроля доступа.</p>
+                </div>
+
+                <!-- Техническое обслуживание -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <img src="../images/solutions/maintenance.webp" alt="Техническое обслуживание" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-bold text-lg mb-2">Техническое обслуживание</h3>
+                    <p class="text-slate-600">Регламентное обслуживание и проверка систем. Соответствие нормам МЧС.</p>
+                </div>
+
+                <!-- Проектирование -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <img src="../images/solutions/fire-safety-hero.webp" alt="Проектирование" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-bold text-lg mb-2">Проектирование</h3>
+                    <p class="text-slate-600">Разработка проектной документации в соответствии с нормами и требованиями.</p>
+                </div>
             </div>
-            <form action="https://formspree.io/f/ВАШ_ID" method="POST" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
-                    <input type="text" name="name" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500" placeholder="Иван Иванов">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Телефон</label>
-                    <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500">
-                        <span class="pl-4 pr-2 text-slate-500 font-medium select-none border-r border-slate-200 py-3">+7</span>
-                        <input type="tel" name="phone" required class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Сообщение</label>
-                    <textarea name="message" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500" placeholder="Расскажите о вашем проекте..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                    Отправить заявку
-                </button>
-            </form>
         </div>
-    </div>
+    </section>
+
+    <!-- Почему выбирают нас -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Почему выбирают нас</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                    <h3 class="font-bold text-lg mb-2">✅ Лицензия МЧС</h3>
+                    <p class="text-slate-600">№78-Б/00649 от 24 февраля 2010 г.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                    <h3 class="font-bold text-lg mb-2">✅ Опыт с 2007 года</h3>
+                    <p class="text-slate-600">Более 15 лет успешной работы</p>
+                </div>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                    <h3 class="font-bold text-lg mb-2">✅ Гарантия качества</h3>
+                    <p class="text-slate-600">Только сертифицированное оборудование</p>
+                </div>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                    <h3 class="font-bold text-lg mb-2">✅ Техподдержка</h3>
+                    <p class="text-slate-600">Обслуживание после установки</p>
+                </div>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                    <h3 class="font-bold text-lg mb-2">✅ ISO 9001:2015</h3>
+                    <p class="text-slate-600">Сертификат соответствия</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Готовы обсудить ваш проект?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Оставьте заявку и получите бесплатную консультацию с выездом на объект</p>
+            <a href="../contacts.html" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg">
+                Оставить заявку
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
@@ -182,21 +213,6 @@
 
     <script>
         lucide.createIcons();
-        
-        function openModal() {
-            document.getElementById('requestModal').style.display = 'block';
-        }
-        
-        function closeModal() {
-            document.getElementById('requestModal').style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            const modal = document.getElementById('requestModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>
