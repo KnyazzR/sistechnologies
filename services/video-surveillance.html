@@ -4,446 +4,232 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Видеонаблюдение | Системные Технологии</title>
-    <meta name="description" content="Проектирование и монтаж систем видеонаблюдения любой сложности. IP и аналоговые камеры, видеоаналитика, удалённый доступ.">
-    <link rel="icon" type="image/webp" href="../images/logo.webp">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; }
         .glass-effect {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
-        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .hero-bg {
-            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 58, 138, 0.8)), 
-                              url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 500px;
-            max-height: 90vh;
-            overflow-y: auto;
-            animation: slideDown 0.3s;
-        }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: #2563EB;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .touch-target { min-height: 44px; min-width: 44px; }
-            input, textarea, select { font-size: 16px !important; }
-        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-    <!-- Навигация -->
-    <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
-        <div class="container mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
-            <a href="../index.html" class="flex items-center gap-2 md:gap-3">
-                <img src="../images/logo.webp" alt="Системные Технологии" class="h-10 w-10 md:h-12 md:w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100">
+    <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200/80 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../images/logo.webp" alt="Системные Технологии" class="h-12 w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100 transition group-hover:scale-105">
                 <div>
-                    <h1 class="text-base md:text-xl font-bold text-slate-900 leading-tight">Системные<br class="md:hidden">Технологии</h1>
+                    <h1 class="text-xl font-bold text-slate-900 leading-tight transition group-hover:text-blue-600">Системные<br>Технологии</h1>
                 </div>
             </a>
             <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
                 <a href="../index.html" class="hover:text-blue-600 transition">Главная</a>
-                <a href="../services.html" class="hover:text-blue-600 transition text-blue-600">Услуги</a>
+                <a href="../services.html" class="text-blue-600 transition">Услуги</a>
                 <a href="../process.html" class="hover:text-blue-600 transition">Этапы</a>
                 <a href="../clients.html" class="hover:text-blue-600 transition">Клиенты</a>
                 <a href="../contacts.html" class="hover:text-blue-600 transition">Контакты</a>
             </nav>
-            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20 touch-target">
-                <i data-lucide="phone" class="w-4 h-4"></i>
+            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-md hover:shadow-blue-200">
+                <i data-lucide="phone" class="w-4 h-4" aria-hidden="true"></i>
                 +7 (812) 339-92-99
             </a>
-            <button id="mobile-menu-btn" class="md:hidden p-2 touch-target w-11 h-11 flex flex-col justify-center items-center">
-                <span class="block w-6 h-0.5 bg-slate-900 mb-1.5"></span>
-                <span class="block w-6 h-0.5 bg-slate-900 mb-1.5"></span>
-                <span class="block w-6 h-0.5 bg-slate-900"></span>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
-            <nav class="container mx-auto px-4 py-4 flex flex-col gap-1 text-base font-semibold text-slate-600">
-                <a href="../index.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
-                    <i data-lucide="home" class="w-5 h-5 mr-3"></i>Главная
-                </a>
-                <a href="../services.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 text-blue-600 touch-target flex items-center">
-                    <i data-lucide="briefcase" class="w-5 h-5 mr-3"></i>Услуги
-                </a>
-                <a href="../process.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
-                    <i data-lucide="list-checks" class="w-5 h-5 mr-3"></i>Этапы работы
-                </a>
-                <a href="../clients.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
-                    <i data-lucide="users" class="w-5 h-5 mr-3"></i>Клиенты
-                </a>
-                <a href="../contacts.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
-                    <i data-lucide="mail" class="w-5 h-5 mr-3"></i>Контакты
-                </a>
-                <a href="tel:+78123399299" class="mt-3 flex items-center justify-center gap-2 bg-blue-600 text-white py-3.5 rounded-full font-semibold touch-target">
-                    <i data-lucide="phone" class="w-5 h-5"></i>
-                    +7 (812) 339-92-99
-                </a>
-            </nav>
         </div>
     </header>
 
-    <!-- Hero секция с фоном -->
-    <section class="hero-bg min-h-[60vh] flex items-center pt-24 pb-16">
-        <div class="container mx-auto px-4 md:px-6 text-center">
-            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-300 hover:text-white hover:gap-3 transition-all mb-6 touch-target">
-                <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                <span class="text-sm md:text-base">Назад к услугам</span>
+    <section class="pt-36 pb-16 bg-white">
+        <div class="container mx-auto px-6">
+            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-all mb-6 group">
+                <i data-lucide="arrow-left" class="w-5 h-5 transition-transform group-hover:-translate-x-1" aria-hidden="true"></i>
+                Назад к услугам
             </a>
-            <div class="flex items-center justify-center gap-4 mb-6">
-                <div class="w-16 h-16 md:w-20 md:h-20 bg-blue-500/20 backdrop-blur-sm text-blue-400 rounded-2xl flex items-center justify-center border border-blue-400/30">
-                    <i data-lucide="video" class="w-8 h-8 md:w-10 md:h-10"></i>
-                </div>
-            </div>
-            <h1 class="text-3xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Системы видеонаблюдения
-            </h1>
-            <p class="text-lg md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8">
-                Проектирование и монтаж систем видеонаблюдения любой сложности. Контроль и безопасность вашего объекта 24/7.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="openModal()" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 touch-target">
-                    Получить консультацию
-                </button>
-                <a href="#solutions" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition touch-target">
-                    Наши решения
-                </a>
-            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Системы видеонаблюдения</h1>
+            <p class="text-xl text-slate-600 max-w-3xl leading-relaxed">Проектирование и монтаж систем видеонаблюдения любой сложности. Контроль и безопасность вашего объекта 24/7.</p>
         </div>
     </section>
 
-    <!-- Статистика -->
-    <section class="py-12 bg-white border-b border-slate-200">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">15+</div>
-                    <p class="text-sm text-slate-600">Лет опыта</p>
+    <section class="py-12 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">15+</div>
+                    <div class="text-sm font-medium text-slate-600 uppercase tracking-wider">Лет опыта</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">500+</div>
-                    <p class="text-sm text-slate-600">Установленных систем</p>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">500+</div>
+                    <div class="text-sm font-medium text-slate-600 uppercase tracking-wider">Объектов</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">24/7</div>
-                    <p class="text-sm text-slate-600">Мониторинг</p>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">24/7</div>
+                    <div class="text-sm font-medium text-slate-600 uppercase tracking-wider">Мониторинг</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">100%</div>
-                    <p class="text-sm text-slate-600">Гарантия качества</p>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">100%</div>
+                    <div class="text-sm font-medium text-slate-600 uppercase tracking-wider">Гарантия</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Основное описание с изображением -->
-    <section id="solutions" class="py-16 md:py-24 bg-slate-50">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-16">
-                    <div>
-                        <h2 class="text-2xl md:text-4xl font-bold mb-6 text-slate-900">Комплексные решения для безопасности</h2>
-                        <p class="text-base md:text-lg text-slate-600 mb-6 leading-relaxed">
-                            Мы проектируем и монтируем системы видеонаблюдения для объектов любого масштаба — от небольших офисов до крупных промышленных предприятий.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <i data-lucide="check" class="w-4 h-4"></i>
-                                </div>
-                                <p class="text-slate-700">Индивидуальный подход к каждому объекту</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <i data-lucide="check" class="w-4 h-4"></i>
-                                </div>
-                                <p class="text-slate-700">Современное оборудование ведущих производителей</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <i data-lucide="check" class="w-4 h-4"></i>
-                                </div>
-                                <p class="text-slate-700">Гарантия и постгарантийное обслуживание</p>
-                            </div>
-                        </div>
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Комплексные решения для безопасности</h2>
+                <p class="text-lg text-slate-600 mb-10 leading-relaxed">Мы проектируем и монтируем системы видеонаблюдения для объектов любого масштаба — от небольших офисов до крупных промышленных предприятий.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-blue-600 flex-shrink-0" aria-hidden="true"></i>
+                        <span class="text-slate-700 font-medium text-sm">Индивидуальный подход к каждому объекту</span>
                     </div>
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Система видеонаблюдения" 
-                             class="rounded-2xl shadow-2xl w-full">
-                        <div class="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-xl shadow-xl hidden md:block">
-                            <div class="text-3xl font-bold">500+</div>
-                            <div class="text-sm">Успешных проектов</div>
-                        </div>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <i data-lucide="cpu" class="w-6 h-6 text-blue-600 flex-shrink-0" aria-hidden="true"></i>
+                        <span class="text-slate-700 font-medium text-sm">Современное оборудование брендов</span>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <i data-lucide="wrench" class="w-6 h-6 text-blue-600 flex-shrink-0" aria-hidden="true"></i>
+                        <span class="text-slate-700 font-medium text-sm">Гарантия и техподдержка 24/7</span>
                     </div>
                 </div>
 
-                <!-- Решения с иконками и изображениями -->
-                <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center text-slate-900">Наши решения</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-slate-100">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                                 alt="IP камеры" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                                <i data-lucide="monitor" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">IP-камеры высокого разрешения</h4>
-                            <p class="text-slate-600 text-sm">Удалённый доступ с любого устройства. Full HD и 4K качество изображения.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-slate-100">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                                 alt="Аналоговые камеры" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                                <i data-lucide="circle-dot" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Аналоговые системы</h4>
-                            <p class="text-slate-600 text-sm">Надёжные и экономичные решения на базе AHD/CVI/TVI технологий.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-slate-100">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                                 alt="Интеграция систем" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                                <i data-lucide="link" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Интеграция с СКУД</h4>
-                            <p class="text-slate-600 text-sm">Объединение с системами безопасности и контроля доступа.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-slate-100">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                                 alt="Видеоаналитика" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                                <i data-lucide="brain" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Видеоаналитика</h4>
-                            <p class="text-slate-600 text-sm">Распознавание лиц, номеров автомобилей, детекция движения.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-slate-100">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1563986768494-4dee46b13a14?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                                 alt="Мобильный доступ" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                                <i data-lucide="smartphone" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Удалённый мониторинг</h4>
-                            <p class="text-slate-600 text-sm">Просмотр камер через мобильное приложение из любой точки мира.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-slate-100">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                                 alt="Серверная" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                                <i data-lucide="server" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Видеорегистраторы</h4>
-                            <p class="text-slate-600 text-sm">Надёжное хранение записи от 7 до 90 дней и более.</p>
-                        </div>
+                <div class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Камера видеонаблюдения на здании" class="w-full h-72 object-cover rounded-xl mb-6 shadow-sm" loading="lazy">
+                    <div class="text-center">
+                        <div class="text-4xl font-extrabold text-blue-600 mb-2">500+</div>
+                        <div class="text-sm font-semibold text-slate-500 uppercase tracking-wider">Успешных проектов по всей России</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Преимущества с иконками -->
-    <section class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-2xl md:text-4xl font-bold mb-6 text-slate-900">Почему выбирают нас</h2>
-                <p class="text-lg text-slate-600">Более 15 лет успешной работы в сфере видеонаблюдения</p>
-            </div>
+    <section id="solutions" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4">Наши решения</h2>
+            <p class="text-slate-500 text-center max-w-xl mx-auto mb-12">Используем передовые технологии для создания надежного периметра безопасности</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="award" class="w-8 h-8"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="IP-камеры высокого разрешения" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">IP-камеры высокого разрешения</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Удалённый доступ с любого устройства. Превосходное Full HD и 4K качество изображения в любое время суток.</p>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Лицензия МЧС</h3>
-                    <p class="text-slate-600 text-sm">Все необходимые разрешения и сертификаты</p>
                 </div>
-                
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Аналоговое видеонаблюдение" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Аналоговые системы</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Надёжные, проверенные временем и экономичные решения на базе современных AHD/CVI/TVI технологий.</p>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Гарантия качества</h3>
-                    <p class="text-slate-600 text-sm">Только проверенное оборудование</p>
                 </div>
-                
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="clock" class="w-8 h-8"></i>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Интеграция СКУД и камер" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Интеграция с СКУД</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Полное объединение видеопотока со смежными системами безопасности, шлагбаумами и контролем доступа.</p>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Техподдержка</h3>
-                    <p class="text-slate-600 text-sm">Обслуживание после установки</p>
                 </div>
-                
-                <div class="text-center p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="trending-up" class="w-8 h-8"></i>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Экран видеоаналитики" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Умная видеоаналитика</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Автоматическое распознавание лиц, номеров автомобилей, детекция саботажа и оставленных предметов.</p>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Опыт с 2007</h3>
-                    <p class="text-slate-600 text-sm">Более 15 лет на рынке</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1563986764494-4dee46b13a14?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Мониторинг на смартфоне" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Удалённый мониторинг</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Удобный просмотр камер через шифрованное мобильное приложение или браузер из любой точки мира.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Серверная стойка с регистраторами" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Видеорегистраторы (NVR/DVR)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Организация защищенных архивов и надёжное хранение локальных записей от 7 до 90 дней и более.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA секция -->
-    <section class="py-16 md:py-24 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-        <div class="container mx-auto px-4 md:px-6 text-center">
-            <h2 class="text-2xl md:text-4xl font-bold mb-6">Готовы обсудить ваш проект?</h2>
-            <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Оставьте заявку и получите бесплатную консультацию с выездом на объект
-            </p>
-            <button onclick="openModal()" class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg touch-target inline-flex items-center gap-2">
-                <i data-lucide="message-square" class="w-5 h-5"></i>
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Почему выбирают нас</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm">
+                    <div class="bg-blue-100 p-2.5 rounded-lg text-blue-600"><i data-lucide="award" class="w-6 h-6"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Опыт работы с 2007</h3>
+                        <p class="text-slate-600 text-sm">Более 15 лет стабильной работы на рынке систем безопасности.</p>
+                    </div>
+                </div>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm">
+                    <div class="bg-blue-100 p-2.5 rounded-lg text-blue-600"><i data-lucide="file-check" class="w-6 h-6"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Лицензия МЧС</h3>
+                        <p class="text-slate-600 text-sm">Имеем все необходимые официальные разрешения, допуски и сертификаты.</p>
+                    </div>
+                </div>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm">
+                    <div class="bg-blue-100 p-2.5 rounded-lg text-blue-600"><i data-lucide="thumbs-up" class="w-6 h-6"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Гарантия качества</h3>
+                        <p class="text-slate-600 text-sm">Поставляем только оригинальное, проверенное и сертифицированное оборудование.</p>
+                    </div>
+                </div>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm lg:col-start-1 lg:col-end-2 md:col-span-1">
+                    <div class="bg-blue-100 p-2.5 rounded-lg text-blue-600"><i data-lucide="headphones" class="w-6 h-6"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Техподдержка</h3>
+                        <p class="text-slate-600 text-sm">Обеспечиваем регулярное регламентное обслуживание после инсталляции.</p>
+                    </div>
+                </div>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm lg:col-start-2 lg:col-end-3 md:col-span-1">
+                    <div class="bg-blue-100 p-2.5 rounded-lg text-blue-600"><i data-lucide="users" class="w-6 h-6"></i></div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Экспертная команда</h3>
+                        <p class="text-slate-600 text-sm">Наши сертифицированные инженеры регулярно проходят курсы повышения квалификации.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent)]"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">Готовы обсудить ваш проект?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">Оставьте заявку и получите бесплатную консультацию инженера с выездом на ваш объект.</p>
+            <a href="../contacts.html" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/20">
                 Оставить заявку
-            </button>
+            </a>
         </div>
     </section>
 
-    <!-- Модальное окно -->
-    <div id="requestModal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Заявка на видеонаблюдение</h3>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 touch-target w-10 h-10 flex items-center justify-center">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-            <form action="https://formspree.io/f/ВАШ_FORMСПРЕЕ_ID" method="POST" class="space-y-4">
-                <input type="hidden" name="service" value="Видеонаблюдение">
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
-                    <input type="text" name="name" required class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="Иван Иванов">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Телефон</label>
-                    <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500">
-                        <span class="pl-4 pr-2 text-slate-500 font-medium select-none border-r border-slate-200 py-3">+7</span>
-                        <input type="tel" name="phone" required inputmode="tel" class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                    <input type="email" name="email" class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="example@mail.ru">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Расскажите о задаче</label>
-                    <textarea name="message" rows="3" class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="Тип объекта, количество камер, пожелания..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition touch-target">
-                    Отправить заявку
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-6 md:py-8 border-t border-slate-800">
-        <div class="container mx-auto px-4 md:px-6 text-center">
-            <p class="text-xs md:text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
-            <p class="text-xs mt-2">190020, Санкт-Петербург, ул. Бумажная, д. 16, к.1 литера А, пом. 26Н | ИНН 7838380554</p>
+    <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-900">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
+            <p class="text-xs mt-3 text-slate-500 leading-relaxed">190020, Санкт-Петербург, ул. Бумажная, д. 16, к.1 литера А, пом. 26Н | ИНН 7838380554</p>
         </div>
     </footer>
 
     <script>
+        // Инициализация иконок Lucide
         lucide.createIcons();
-        
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        function openModal() {
-            document.getElementById('requestModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeModal() {
-            document.getElementById('requestModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        window.onclick = function(event) {
-            const modal = document.getElementById('requestModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
     </script>
 </body>
 </html>
