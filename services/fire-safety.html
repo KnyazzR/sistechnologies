@@ -18,196 +18,211 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-    <!-- Навигация -->
-    <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
+    <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200/80 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="../index.html" class="flex items-center gap-3">
-                <img src="../images/logo.webp" alt="Системные Технологии" class="h-12 w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <img src="../images/logo.webp" alt="Системные Технологии" class="h-12 w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100 transition group-hover:scale-105">
                 <div>
-                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Системные<br>Технологии</h1>
+                    <h1 class="text-xl font-bold text-slate-900 leading-tight transition group-hover:text-blue-600">Системные<br>Технологии</h1>
                 </div>
             </a>
             <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
                 <a href="../index.html" class="hover:text-blue-600 transition">Главная</a>
-                <a href="../services.html" class="hover:text-blue-600 transition text-blue-600">Услуги</a>
+                <a href="../services.html" class="text-blue-600 transition">Услуги</a>
                 <a href="../process.html" class="hover:text-blue-600 transition">Этапы</a>
                 <a href="../clients.html" class="hover:text-blue-600 transition">Клиенты</a>
                 <a href="../contacts.html" class="hover:text-blue-600 transition">Контакты</a>
             </nav>
-            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition">
-                <i data-lucide="phone" class="w-4 h-4"></i>
+            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-md hover:shadow-blue-200">
+                <i data-lucide="phone" class="w-4 h-4" aria-hidden="true"></i>
                 +7 (812) 339-92-99
             </a>
         </div>
     </header>
 
-    <!-- Заголовок -->
-    <section class="pt-32 pb-16 bg-white">
+    <section class="pt-36 pb-16 bg-white">
         <div class="container mx-auto px-6">
-            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-600 hover:gap-3 transition-all mb-6">
-                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-all mb-6 group">
+                <i data-lucide="arrow-left" class="w-5 h-5 transition-transform group-hover:-translate-x-1" aria-hidden="true"></i>
                 Назад к услугам
             </a>
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Пожарная безопасность</h1>
-            <p class="text-xl text-slate-600 max-w-3xl">Охранно-пожарная сигнализация, системы оповещения и управления эвакуацией. Защита вашего объекта 24/7.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Пожарная безопасность</h1>
+            <p class="text-xl text-slate-600 max-w-3xl leading-relaxed">Охранно-пожарная сигнализация, системы оповещения и управления эвакуацией. Защита вашего объекта 24/7.</p>
         </div>
     </section>
 
-    <!-- Статистика -->
     <section class="py-12 bg-slate-50">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
-                    <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
-                    <div class="text-slate-600">Лет опыта</div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">15+</div>
+                    <div class="text-sm font-medium text-slate-600 uppercase tracking-wider">Лет опыта</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
-                    <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
-                    <div class="text-slate-600">Объектов</div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">500+</div>
+                    <div class="text-sm font-medium text-slate-600 uppercase tracking-wider">Объектов</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
-                    <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
-                    <div class="text-slate-600">Мониторинг</div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">24/7</div>
+                    <div class="text-sm font-medium text-slate-600 uppercase tracking-wider">Мониторинг</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
-                    <div class="text-4xl font-bold text-blue-600 mb-2">100%</div>
-                    <div class="text-slate-600">Гарантия</div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-100 transition hover:shadow-md">
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">100%</div>
+                    <div class="text-sm font-medium text-slate-600 uppercase tracking-wider">Гарантия</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Описание -->
-    <section class="py-16 bg-white">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl">
-                <h2 class="text-3xl font-bold mb-6">Комплексные решения для пожарной безопасности</h2>
-                <p class="text-lg text-slate-600 mb-8">Мы проектируем и монтируем системы пожарной безопасности для объектов любого типа — от небольших офисов до крупных промышленных предприятий.</p>
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Комплексные решения для пожарной безопасности</h2>
+                <p class="text-lg text-slate-600 mb-10 leading-relaxed">Мы проектируем и монтируем системы пожарной безопасности для объектов любого типа — от небольших офисов до крупных промышленных предприятий.</p>
                 
                 <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <div class="flex items-start gap-3">
-                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
-                        <span class="text-slate-700">Лицензия МЧС №78-Б/00649</span>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-blue-600 flex-shrink-0" aria-hidden="true"></i>
+                        <span class="text-slate-700 font-medium text-sm">Лицензия МЧС №78-Б/00649</span>
                     </div>
-                    <div class="flex items-start gap-3">
-                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
-                        <span class="text-slate-700">Сертифицированное оборудование</span>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <i data-lucide="cpu" class="w-6 h-6 text-blue-600 flex-shrink-0" aria-hidden="true"></i>
+                        <span class="text-slate-700 font-medium text-sm">Сертифицированное оборудование брендов</span>
                     </div>
-                    <div class="flex items-start gap-3">
-                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
-                        <span class="text-slate-700">Гарантия и техподдержка</span>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <i data-lucide="wrench" class="w-6 h-6 text-blue-600 flex-shrink-0" aria-hidden="true"></i>
+                        <span class="text-slate-700 font-medium text-sm">Гарантия и техподдержка 24/7</span>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-8 rounded-2xl">
-                    <img src="../images/solutions/fire-safety-large.webp" alt="Пожарная безопасность" class="w-full h-64 object-cover rounded-lg mb-6">
+                <div class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 shadow-inner">
+                    <img src="../images/solutions/fire-safety-large.webp" alt="Пожарная безопасность на предприятии" class="w-full h-72 object-cover rounded-xl mb-6 shadow-sm" loading="lazy">
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
-                        <div class="text-slate-600">Успешных проектов по всей России</div>
+                        <div class="text-4xl font-extrabold text-blue-600 mb-2">500+</div>
+                        <div class="text-sm font-semibold text-slate-500 uppercase tracking-wider">Успешных проектов по всей России</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Наши решения -->
-    <section id="solutions" class="py-16 bg-slate-50">
+    <section id="solutions" class="py-20 bg-slate-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Наши решения</h2>
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4">Наши решения</h2>
+            <p class="text-slate-500 text-center max-w-xl mx-auto mb-12">Используем передовые технологии для защиты жизни людей и имущества</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Охранно-пожарная сигнализация -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <img src="../images/solutions/fire-alarm.webp" alt="Охранно-пожарная сигнализация" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-bold text-lg mb-2">Охранно-пожарная сигнализация</h3>
-                    <p class="text-slate-600">Современные датчики дыма, тепла и пламени. Мгновенное оповещение о возгорании.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="../images/solutions/fire-alarm.webp" alt="Охранно-пожарная сигнализация" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Охранно-пожарная сигнализация</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Современные датчики дыма, тепла и пламени. Мгновенное обнаружение угрозы и передача сигнала тревоги.</p>
+                    </div>
                 </div>
 
-                <!-- Системы оповещения -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <img src="../images/solutions/evacuation.webp" alt="Системы оповещения" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-bold text-lg mb-2">Системы оповещения</h3>
-                    <p class="text-slate-600">Речевое оповещение и управление эвакуацией. Световые табло "Выход".</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="../images/solutions/evacuation.webp" alt="Системы оповещения" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Системы оповещения</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Речевое оповещение и управление эвакуацией (СОУЭ). Световые указатели, табло "Выход" и звуковые извещатели.</p>
+                    </div>
                 </div>
 
-                <!-- Автоматическое пожаротушение -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <img src="../images/solutions/fire-suppression.webp" alt="Автоматическое пожаротушение" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-bold text-lg mb-2">Автоматическое пожаротушение</h3>
-                    <p class="text-slate-600">Спринклерные и газовые системы. Быстрое тушение без участия человека.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="../images/solutions/fire-suppression.webp" alt="Автоматическое пожаротушение" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Автоматическое пожаротушение</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Проектирование и монтаж спринклерных, порошковых и газовых систем. Быстрая локализация огня без участия человека.</p>
+                    </div>
                 </div>
 
-                <!-- Интеграция с видеонаблюдением -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <img src="../images/solutions/security-integration.webp" alt="Интеграция с видеонаблюдением" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-bold text-lg mb-2">Интеграция с видеонаблюдением</h3>
-                    <p class="text-slate-600">Объединение с системами безопасности и контроля доступа.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="../images/solutions/security-integration.webp" alt="Интеграция систем безопасности" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Интеграция с видеонаблюдением</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Объединение систем пожарной автоматики с камерами для быстрой визуальной верификации очага возгорания.</p>
+                    </div>
                 </div>
 
-                <!-- Техническое обслуживание -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <img src="../images/solutions/maintenance.webp" alt="Техническое обслуживание" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-bold text-lg mb-2">Техническое обслуживание</h3>
-                    <p class="text-slate-600">Регламентное обслуживание и проверка систем. Соответствие нормам МЧС.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="../images/solutions/maintenance.webp" alt="Техническое обслуживание" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Техническое обслуживание</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Регулярное регламентное обслуживание, проверка работоспособности датчиков и ведение журналов по нормам МЧС.</p>
+                    </div>
                 </div>
 
-                <!-- Проектирование -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                    <img src="../images/solutions/fire-safety-hero.webp" alt="Проектирование" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-bold text-lg mb-2">Проектирование</h3>
-                    <p class="text-slate-600">Разработка проектной документации в соответствии с нормами и требованиями.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <img src="../images/solutions/fire-safety-hero.webp" alt="Проектирование систем пожарной безопасности" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">Проектирование</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Разработка полного комплекта проектно-сметной документации строго в соответствии с актуальными ГОСТ и СП.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Почему выбирают нас -->
-    <section class="py-16 bg-white">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Почему выбирают нас</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <h3 class="font-bold text-lg mb-2">✅ Лицензия МЧС</h3>
-                    <p class="text-slate-600">№78-Б/00649 от 24 февраля 2010 г.</p>
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Почему выбирают нас</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm transition hover:shadow-md">
+                    <i data-lucide="file-check" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Лицензия МЧС</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">№78-Б/00649 от 24 февраля 2010 г. Полное соответствие закону.</p>
+                    </div>
                 </div>
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <h3 class="font-bold text-lg mb-2">✅ Опыт с 2007 года</h3>
-                    <p class="text-slate-600">Более 15 лет успешной работы</p>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm transition hover:shadow-md">
+                    <i data-lucide="award" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Опыт с 2007 года</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Более 15 лет успешного проектирования и монтажа охранно-пожарных систем.</p>
+                    </div>
                 </div>
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <h3 class="font-bold text-lg mb-2">✅ Гарантия качества</h3>
-                    <p class="text-slate-600">Только сертифицированное оборудование</p>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm transition hover:shadow-md">
+                    <i data-lucide="thumbs-up" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Гарантия качества</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Поставка исключительно сертифицированного оборудования ведущих брендов.</p>
+                    </div>
                 </div>
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <h3 class="font-bold text-lg mb-2">✅ Техподдержка</h3>
-                    <p class="text-slate-600">Обслуживание после установки</p>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm transition hover:shadow-md lg:col-start-1 lg:col-end-2 md:col-span-1">
+                    <i data-lucide="headphones" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">Техподдержка</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Профессиональное техническое и регламентное обслуживание систем после установки.</p>
+                    </div>
                 </div>
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <h3 class="font-bold text-lg mb-2">✅ ISO 9001:2015</h3>
-                    <p class="text-slate-600">Сертификат соответствия</p>
+                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 flex gap-4 items-start shadow-sm transition hover:shadow-md lg:col-start-2 lg:col-end-3 md:col-span-1">
+                    <i data-lucide="shield" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0"></i>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-1">ISO 9001:2015</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Официальный сертификат соответствия менеджмента качества международным стандартам.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Готовы обсудить ваш проект?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Оставьте заявку и получите бесплатную консультацию с выездом на объект</p>
-            <a href="../contacts.html" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg">
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent)]"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">Готовы обсудить ваш проект?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">Оставьте заявку и получите бесплатную консультацию инженера с выездом на ваш объект.</p>
+            <a href="../contacts.html" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/20">
                 Оставить заявку
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
+    <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-900">
         <div class="container mx-auto px-6 text-center">
             <p class="text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
-            <p class="text-xs mt-2">190020, Санкт-Петербург, ул. Бумажная, д. 16, к.1 литера А, пом. 26Н | ИНН 7838380554</p>
+            <p class="text-xs mt-3 text-slate-500 leading-relaxed">190020, Санкт-Петербург, ул. Бумажная, д. 16, к.1 литера А, пом. 26Н | ИНН 7838380554</p>
         </div>
     </footer>
 
