@@ -16,6 +16,25 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+        /* Стиль для всплывающего уведомления */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0f172a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -98,7 +117,10 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-1">Email</h3>
-                                <a href="mailto:office@systechnologies.ru" class="text-blue-600 hover:underline">office@systechnologies.ru</a>
+                                <button onclick="copyEmail(this)" class="text-blue-600 hover:underline text-left flex items-center gap-2 group cursor-pointer">
+                                    <span>office@systechnologies.ru</span>
+                                    <i data-lucide="copy" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-slate-400"></i>
+                                </button>
                             </div>
                         </div>
                         
@@ -126,27 +148,30 @@
 
                 <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
                     <h2 class="text-2xl font-bold mb-6">Оставить заявку</h2>
-                    <form action="https://formspree.io/f/ВАШ_FORMSPREE_ID" method="POST" class="space-y-4">
+                    <form id="contactForm" action="https://formspree.io/f/ВАШ_FORMSPREE_ID" method="POST" novalidate class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
-                            <input type="text" name="name" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 transition" placeholder="Иван Иванов">
+                            <input type="text" id="nameInput" name="name" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 transition" placeholder="Иван Иванов">
+                            <p id="nameError" class="text-red-500 text-xs mt-1 hidden">Имя должно содержать только буквы и быть длиннее 1 символа</p>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">Телефон</label>
-                            <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500 transition">
+                            <div id="phoneContainer" class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500 transition">
                                 <span class="pl-4 pr-2 text-slate-500 font-medium select-none border-r border-slate-200 py-3">+7</span>
-                                <input type="tel" name="phone" required class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
+                                <input type="tel" id="phoneInput" name="phone" class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
                             </div>
+                            <p id="phoneError" class="text-red-500 text-xs mt-1 hidden">Введите корректный номер телефона (10 цифр)</p>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                            <input type="email" name="email" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 transition" placeholder="example@mail.ru">
+                            <input type="email" id="emailInput" name="email" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 transition" placeholder="example@mail.ru">
+                            <p id="emailError" class="text-red-500 text-xs mt-1 hidden">Введите корректный адрес электронной почты</p>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">Сообщение</label>
                             <textarea name="message" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500 transition" placeholder="Напишите ваши пожелания"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20 cursor-pointer">
                             Отправить заявку
                         </button>
                     </form>
@@ -154,6 +179,8 @@
             </div>
         </div>
     </section>
+
+    <div id="toast" class="toast">Email скопирован в буфер обмена!</div>
 
     <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
         <div class="container mx-auto px-6 text-center">
@@ -165,17 +192,84 @@
     <script>
         lucide.createIcons();
         
+        // Мобильное меню
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+
+        // Функция копирования почты
+        function copyEmail(button) {
+            const emailText = button.querySelector('span').innerText;
+            navigator.clipboard.writeText(emailText).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2500);
             });
+        }
+
+        // Валидация формы
+        const form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', function(event) {
+            let isValid = true;
+
+            // Элементы
+            const name = document.getElementById('nameInput');
+            const phone = document.getElementById('phoneInput');
+            const email = document.getElementById('emailInput');
+            const phoneContainer = document.getElementById('phoneContainer');
+
+            // Ошибки
+            const nameError = document.getElementById('nameError');
+            const phoneError = document.getElementById('phoneError');
+            const emailError = document.getElementById('emailError');
+
+            // Регулярные выражения
+            const nameRegex = /^[A-Za-zА-Яа-яЁё\s]{2,}$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            // Очищаем телефон от масок, скобок и пробелов, оставляем только цифры
+            const cleanPhone = phone.value.replace(/\D/g, '');
+
+            // Проверка имени
+            if (!nameRegex.test(name.value.trim())) {
+                name.classList.add('border-red-500', 'bg-red-50');
+                nameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                name.classList.remove('border-red-500', 'bg-red-50');
+                nameError.classList.add('hidden');
+            }
+
+            // Проверка телефона (должно остаться ровно 10 цифр без учета +7)
+            if (cleanPhone.length !== 10) {
+                phoneContainer.classList.add('border-red-500', 'bg-red-50');
+                phoneError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                phoneContainer.classList.remove('border-red-500', 'bg-red-50');
+                phoneError.classList.add('hidden');
+            }
+
+            // Проверка Email
+            if (email.value.trim() !== "" && !emailRegex.test(email.value.trim())) {
+                email.classList.add('border-red-500', 'bg-red-50');
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                email.classList.remove('border-red-500', 'bg-red-50');
+                emailError.classList.add('hidden');
+            }
+
+            // Если хоть одно поле неверно — останавливаем отправку
+            if (!isValid) {
+                event.preventDefault();
+            }
         });
     </script>
 </body>
