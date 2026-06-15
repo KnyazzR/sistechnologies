@@ -473,16 +473,36 @@
             }
         });
 
-        // Функция копирования почты в буфер обмена
+        // Универсальная кроссплатформенная функция копирования текста
         function copyEmail(button) {
             const emailText = button.querySelector('span').innerText;
-            navigator.clipboard.writeText(emailText).then(() => {
+            
+            // Создаем невидимый текстовый элемент
+            const el = document.createElement('textarea');
+            el.value = emailText;
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            
+            // Выделяем и копируем старым надежным способом execCommand
+            el.select();
+            el.setSelectionRange(0, 99999); // Для мобильных iOS устройств
+            
+            try {
+                document.execCommand('copy');
+                // Если успешно, показываем уведомление
                 const toast = document.getElementById('toast');
                 toast.classList.add('show');
                 setTimeout(() => {
                     toast.classList.remove('show');
                 }, 2500);
-            });
+            } catch (err) {
+                console.error('Ошибка копирования:', err);
+            }
+            
+            // Удаляем невидимый элемент с экрана
+            document.body.removeChild(el);
         }
     </script>
 </body>
