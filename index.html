@@ -108,11 +108,30 @@
             border-color: #2563EB;
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
+
+        /* Стиль для всплывающего уведомления */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0f172a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 pb-20 md:pb-0">
 
-    <!-- Навигация -->
     <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
         <div class="container mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2 md:gap-3">
@@ -125,7 +144,7 @@
                 <a href="index.html" class="hover:text-blue-600 transition text-blue-600">Главная</a>
                 <a href="services.html" class="hover:text-blue-600 transition">Услуги</a>
                 <a href="process.html" class="hover:text-blue-600 transition">Этапы</a>
-                <a href="clients.html" class="hover:text-blue-600 transition">Клиенты</a>
+                <a href="clients.html" class="hover:text-blue-600 transition">Clients</a>
                 <a href="contacts.html" class="hover:text-blue-600 transition">Контакты</a>
             </nav>
             <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20 touch-target">
@@ -163,7 +182,6 @@
         </div>
     </header>
 
-    <!-- Главный экран -->
     <section class="hero-bg min-h-screen flex items-center pt-20 md:pt-24">
         <div class="container mx-auto px-4 md:px-6 text-center md:text-left">
             <div class="max-w-3xl">
@@ -188,7 +206,6 @@
         </div>
     </section>
 
-    <!-- О компании -->
     <section id="about" class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-10 md:mb-16">
@@ -221,7 +238,6 @@
         </div>
     </section>
 
-    <!-- Услуги (кратко) -->
     <section id="services" class="py-12 md:py-20 bg-slate-50">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-10 md:mb-16">
@@ -258,7 +274,6 @@
         </div>
     </section>
 
-    <!-- БЕГУЩАЯ СТРОКА С КЛИЕНТАМИ (ВСЕ 10) -->
     <section class="py-12 md:py-20 bg-slate-50 border-y border-slate-200 overflow-hidden">
         <div class="container mx-auto px-4 md:px-6 mb-8 md:mb-12 text-center">
             <h3 class="text-2xl md:text-4xl font-bold text-slate-900 mb-2 md:mb-4">Нам доверяют</h3>
@@ -267,7 +282,6 @@
         
         <div class="relative w-full">
             <div class="flex animate-marquee">
-                <!-- ПЕРВЫЙ НАБОР -->
                 <div class="flex gap-3 md:gap-6 pr-3 md:pr-6 flex-shrink-0">
                     <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Северсталь</span>
@@ -301,7 +315,6 @@
                     </div>
                 </div>
                 
-                <!-- ДУБЛИКАТ -->
                 <div class="flex gap-3 md:gap-6 pr-3 md:pr-6 flex-shrink-0">
                     <div class="client-logo-wrapper bg-white px-5 md:px-8 py-3 md:py-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center min-w-[140px] md:min-w-[220px] h-14 md:h-20">
                         <span class="font-bold text-slate-700 text-xs md:text-base">Северсталь</span>
@@ -344,7 +357,6 @@
         </div>
     </section>
 
-    <!-- Контакты -->
     <section id="contacts" class="py-12 md:py-20 bg-slate-900 text-white">
         <div class="container mx-auto px-4 md:px-6">
             <div class="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -377,7 +389,10 @@
                             </div>
                             <div>
                                 <h5 class="font-semibold mb-1 text-sm md:text-base">Email</h5>
-                                <a href="mailto:office@systechnologies.ru" class="text-blue-400 hover:text-blue-300 text-xs md:text-sm break-all touch-target inline-flex items-center">office@systechnologies.ru</a>
+                                <button onclick="copyEmail(this)" class="text-blue-400 hover:text-blue-300 text-xs md:text-sm break-all touch-target inline-flex items-center text-left group cursor-pointer focus:outline-none focus:underline">
+                                    <span>office@systechnologies.ru</span>
+                                    <i data-lucide="copy" class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-slate-400 ml-1.5 inline-block"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -414,7 +429,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-6 md:py-8 border-t border-slate-800">
         <div class="container mx-auto px-4 md:px-6 text-center">
             <p class="text-xs md:text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
@@ -422,7 +436,8 @@
         </div>
     </footer>
 
-    <!-- Плавающая кнопка звонка (только на мобильных) -->
+    <div id="toast" class="toast">Email скопирован в буфер обмена!</div>
+
     <a href="tel:+78123399299" class="floating-call-btn fixed bottom-6 right-6 md:hidden bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-40 touch-target">
         <i data-lucide="phone" class="w-6 h-6"></i>
     </a>
@@ -457,6 +472,18 @@
                 mobileMenuBtn.classList.remove('menu-open');
             }
         });
+
+        // Функция копирования почты в буфер обмена
+        function copyEmail(button) {
+            const emailText = button.querySelector('span').innerText;
+            navigator.clipboard.writeText(emailText).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2500);
+            });
+        }
     </script>
 </body>
 </html>
