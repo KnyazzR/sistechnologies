@@ -1,351 +1,340 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СКУД и домофония | Системные Технологии</title>
-    <meta name="description" content="Установка систем контроля и управления доступом, домофонии и защиты от протечек в Санкт-Петербурге. Опыт более 15 лет.">
-    <!-- Подключение Tailwind CSS через CDN для быстрого старта -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
-        /* Дополнительные стили для плавных переходов */
-        .card-hover {
-            transition: all 0.3s ease;
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        /* Улучшенная премиальная анимация: мягкое появление с легким подъемом */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1s cubic-bezier(0.215, 0.610, 0.355, 1);
         }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Сверхплавный ховер-эффект для карточек решений */
+        .hover-lift {
+            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            animation: fadeIn 0.4s ease-out;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            animation: slideDown 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<body class="bg-slate-50 text-slate-800">
 
-    <!-- Header / Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="../index.html" class="flex items-center gap-2">
-                        <img class="h-8 w-auto" src="../images/logo.webp" alt="Логотип Системные Технологии">
-                        <span class="font-bold text-xl text-blue-900 hidden sm:block">Системные Технологии</span>
-                    </a>
+    <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3">
+                <img src="../images/logo.webp" alt="Системные Технологии" class="h-12 w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100">
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Системные<br>Технологии</h1>
                 </div>
-                
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="../index.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition">Главная</a>
-                    <a href="../services.html" class="text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Услуги</a>
-                    <a href="../process.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition">Этапы</a>
-                    <a href="../clients.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition">Клиенты</a>
-                    <a href="../contacts.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition">Контакты</a>
-                </nav>
-
-                <!-- Phone Number -->
-                <div class="flex items-center">
-                    <a href="tel:+78123399299" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition shadow-md">
-                        +7 (812) 339-92-99
-                    </a>
-                </div>
-            </div>
+            </a>
+            <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
+                <a href="../index.html" class="hover:text-blue-600 transition">Главная</a>
+                <a href="../services.html" class="hover:text-blue-600 transition text-blue-600">Услуги</a>
+                <a href="../process.html" class="hover:text-blue-600 transition">Этапы</a>
+                <a href="../clients.html" class="hover:text-blue-600 transition">Клиенты</a>
+                <a href="../contacts.html" class="hover:text-blue-600 transition">Контакты</a>
+            </nav>
+            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                +7 (812) 339-92-99
+            </a>
         </div>
     </header>
 
-    <!-- Back Button & Breadcrumbs -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <a href="../services.html" class="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 transition">
-            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-            Назад к услугам
-        </a>
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="../images/about-scud-hero.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-200 hover:text-white transition-all mb-6">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                Назад к услугам
+            </a>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in">СКУД и домофония</h1>
+            <p class="text-xl text-blue-100 max-w-3xl fade-in">Системы контроля и управления доступом, домофония, защита от протечек воды. Надёжная защита вашего объекта 24/7.</p>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white -mt-10 relative z-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-slate-100 fade-in">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+                    <div class="text-slate-600">Лет опыта</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-slate-100 fade-in">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">300+</div>
+                    <div class="text-slate-600">Установленных СКУД</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-slate-100 fade-in">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
+                    <div class="text-slate-600">Домофонов</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-slate-100 fade-in">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">100%</div>
+                    <div class="text-slate-600">Гарантия</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6 text-center fade-in">Комплексные решения для контроля доступа</h2>
+                <p class="text-lg text-slate-600 mb-12 text-center fade-in">Мы устанавливаем современные системы контроля доступа для обеспечения безопасности вашего объекта — от небольших офисов до крупных промышленных предприятий.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="flex items-start gap-3 fade-in">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700">Биометрическая идентификация</span>
+                    </div>
+                    <div class="flex items-start gap-3 fade-in">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700">Удалённое управление доступом</span>
+                    </div>
+                    <div class="flex items-start gap-3 fade-in">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700">Интеграция с видеонаблюдением</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in">
+                    <img src="../images/about-scud-main.jpg" alt="СКУД" class="w-full h-72 object-cover rounded-lg mb-6">
+                    <div class="grid md:grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-3xl font-bold text-blue-600 mb-2">300+</div>
+                            <div class="text-slate-600">Установленных СКУД</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                            <div class="text-slate-600">Биометрических систем</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                            <div class="text-slate-600">Техподдержка</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Наши решения</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
+                    <img src="../images/solutions-rfid.jpg" alt="Электронные пропускные системы" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Электронные пропускные системы</h3>
+                        <p class="text-slate-600 text-sm">Карты доступа, брелоки, ключи-таблетки. Учёт рабочего времени и контроль перемещений.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
+                    <img src="../images/solutions-biometrics.jpg" alt="Биометрические системы" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Биометрические системы</h3>
+                        <p class="text-slate-600 text-sm">Распознавание отпечатков пальцев, лиц, радужки глаза. Максимальная безопасность.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
+                    <img src="../images/solutions-intercoms.jpg" alt="Домофонные системы" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Домофонные системы</h3>
+                        <p class="text-slate-600 text-sm">Аудио и видеодомофоны для жилых и коммерческих объектов. Удалённое открытие.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
+                    <img src="../images/solutions-leak-protection.jpg" alt="Защита от протечек" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Защита от протечек</h3>
+                        <p class="text-slate-600 text-sm">Датчики протечки воды, автоматическое перекрытие кранов. Защита от затопления.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
+                    <img src="../images/solutions-cctv.jpg" alt="Интеграция с видеонаблюдением" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Интеграция с видеонаблюдением</h3>
+                        <p class="text-slate-600 text-sm">Объединение СКУД с системами видеонаблюдения для полного контроля.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
+                    <img src="../images/solutions-turnstiles.jpg" alt="Турникеты и шлагбаумы" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Турникеты и шлагбаумы</h3>
+                        <p class="text-slate-600 text-sm">Автоматические преграждающие устройства для контроля доступа на территорию.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Почему выбирают нас</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-xl bg-white border border-slate-100 shadow-md hover-lift fade-in">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Лицензия МЧС</h3>
+                    <p class="text-slate-600 text-sm">Все необходимые разрешения и сертификаты</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-slate-100 shadow-md hover-lift fade-in">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="clock" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Опыт с 2007</h3>
+                    <p class="text-slate-600 text-sm">Более 15 лет успешной работы</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-slate-100 shadow-md hover-lift fade-in">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="award" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Гарантия качества</h3>
+                    <p class="text-slate-600 text-sm">Только проверенное оборудование</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-slate-100 shadow-md hover-lift fade-in">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="headphones" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Техподдержка</h3>
+                    <p class="text-slate-600 text-sm">Обслуживание после установки</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in">Готовы обсудить ваш проект?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto fade-in">Оставьте заявку и получите бесплатную консультацию с выездом на объект</p>
+            <button onclick="openModal()" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg cursor-pointer fade-in">
+                Оставить заявку
+            </button>
+        </div>
+    </section>
+
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Оставить заявку</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 cursor-pointer">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <form action="https://formspree.io/f/ВАШ_ID" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
+                    <input type="text" name="name" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500" placeholder="Иван Иванов">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Телефон</label>
+                    <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500">
+                        <span class="pl-4 pr-2 text-slate-500 font-medium select-none border-r border-slate-200 py-3">+7</span>
+                        <input type="tel" name="phone" required class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Сообщение</label>
+                    <textarea name="message" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500" placeholder="Расскажите о вашем проекте..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    Отправить заявку
+                </button>
+            </form>
+        </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="relative bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 pt-10 px-4 sm:px-6 lg:px-8">
-                <main class="mt-10 mx-auto max-w-7xl sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28">
-                    <div class="sm:text-center lg:text-left">
-                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                            <span class="block xl:inline">СКУД и домофония</span>
-                            <span class="block text-blue-600 xl:inline">для безопасности вашего объекта</span>
-                        </h1>
-                        <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            Системы контроля и управления доступом, домофония, защита от протечек воды. Надёжная защита вашего объекта 24/7. От небольших офисов до крупных промышленных предприятий.
-                        </p>
-                        
-                        <!-- Stats -->
-                        <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <div class="text-2xl font-bold text-gray-900">15+</div>
-                                <div class="text-sm text-gray-500">Лет опыта</div>
-                            </div>
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <div class="text-2xl font-bold text-gray-900">300+</div>
-                                <div class="text-sm text-gray-500">Установленных СКУД</div>
-                            </div>
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <div class="text-2xl font-bold text-gray-900">500+</div>
-                                <div class="text-sm text-gray-500">Домофонов</div>
-                            </div>
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <div class="text-2xl font-bold text-gray-900">100%</div>
-                                <div class="text-sm text-gray-500">Гарантия</div>
-                            </div>
-                        </div>
-
-                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                            <div class="rounded-md shadow">
-                                <a href="#contact-form" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition">
-                                    Оставить заявку
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-gray-100">
-            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="../images/about-scud-hero.webp" alt="Система контроля доступа">
-        </div>
-    </section>
-
-    <!-- Features Grid -->
-    <section class="py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Наши решения</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Комплексные решения для контроля доступа
-                </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-                    Мы устанавливаем современные системы, интегрируя биометрию, удалённое управление и видеонаблюдение.
-                </p>
-            </div>
-
-            <div class="mt-10">
-                <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                    <div class="relative">
-                        <dt>
-                            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                                <!-- Icon -->
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.2-2.858.578-4.18M12 17.14c-1.753-2.772-2.753-6.054-2.753-9.571 0-1.753.2-3.458.578-5.08" /></svg>
-                            </div>
-                            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Биометрическая идентификация</p>
-                        </dt>
-                        <dd class="mt-2 ml-16 text-base text-gray-500">
-                            Распознавание отпечатков пальцев, лиц, радужки глаза. Максимальная безопасность без ключей и карт.
-                        </dd>
-                    </div>
-
-                    <div class="relative">
-                        <dt>
-                            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
-                            </div>
-                            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Удалённое управление доступом</p>
-                        </dt>
-                        <dd class="mt-2 ml-16 text-base text-gray-500">
-                            Открытие дверей со смартфона, управление правами доступа из любой точки мира.
-                        </dd>
-                    </div>
-
-                    <div class="relative">
-                        <dt>
-                            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                            </div>
-                            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Интеграция с видеонаблюдением</p>
-                        </dt>
-                        <dd class="mt-2 ml-16 text-base text-gray-500">
-                            Объединение СКУД с камерами для фиксации каждого входа и выхода.
-                        </dd>
-                    </div>
-                </dl>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solutions Cards with Images -->
-    <section class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-8 text-center">Каталог решений</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Card 1: RFID -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-100">
-                    <div class="h-48 w-full bg-gray-200 relative">
-                        <img src="../images/solutions/rfid.webp" alt="Электронные пропускные системы" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Электронные пропускные системы</h3>
-                        <p class="text-gray-600 mb-4">Карты доступа, брелоки, ключи-таблетки. Учёт рабочего времени и контроль перемещений.</p>
-                    </div>
-                </div>
-
-                <!-- Card 2: Biometrics -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-100">
-                    <div class="h-48 w-full bg-gray-200 relative">
-                        <img src="../images/solutions/biometrics.webp" alt="Биометрические системы" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Биометрические системы</h3>
-                        <p class="text-gray-600 mb-4">Распознавание отпечатков пальцев, лиц, радужки глаза. Максимальная безопасность.</p>
-                    </div>
-                </div>
-
-                <!-- Card 3: Intercoms -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-100">
-                    <div class="h-48 w-full bg-gray-200 relative">
-                        <img src="../images/solutions/intercoms.webp" alt="Домофонные системы" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Домофонные системы</h3>
-                        <p class="text-gray-600 mb-4">Аудио и видеодомофоны для жилых и коммерческих объектов. Удалённое открытие.</p>
-                    </div>
-                </div>
-
-                <!-- Card 4: Leak Protection -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-100">
-                    <div class="h-48 w-full bg-gray-200 relative">
-                        <img src="../images/solutions/leak-protection.webp" alt="Защита от протечек" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Защита от протечек</h3>
-                        <p class="text-gray-600 mb-4">Датчики протечки воды, автоматическое перекрытие кранов. Защита от затопления.</p>
-                    </div>
-                </div>
-
-                <!-- Card 5: CCTV Integration -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-100">
-                    <div class="h-48 w-full bg-gray-200 relative">
-                        <img src="../images/solutions/cctv.webp" alt="Интеграция с видеонаблюдением" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Интеграция с видеонаблюдением</h3>
-                        <p class="text-gray-600 mb-4">Объединение СКУД с системами видеонаблюдения для полного контроля ситуации.</p>
-                    </div>
-                </div>
-
-                <!-- Card 6: Turnstiles -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-100">
-                    <div class="h-48 w-full bg-gray-200 relative">
-                        <img src="../images/solutions/turnstiles.webp" alt="Турникеты и шлагбаумы" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Турникеты и шлагбаумы</h3>
-                        <p class="text-gray-600 mb-4">Автоматические преграждающие устройства для контроля доступа на территорию.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="py-12 bg-blue-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold">Почему выбирают нас</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <div class="p-4">
-                    <div class="text-4xl mb-4">📜</div>
-                    <h3 class="text-xl font-bold mb-2">Лицензия МЧС</h3>
-                    <p class="text-blue-200">Все необходимые разрешения и сертификаты</p>
-                </div>
-                <div class="p-4">
-                    <div class="text-4xl mb-4">📅</div>
-                    <h3 class="text-xl font-bold mb-2">Опыт с 2007</h3>
-                    <p class="text-blue-200">Более 15 лет успешной работы на рынке</p>
-                </div>
-                <div class="p-4">
-                    <div class="text-4xl mb-4">🛡️</div>
-                    <h3 class="text-xl font-bold mb-2">Гарантия качества</h3>
-                    <p class="text-blue-200">Только проверенное оборудование от лидеров</p>
-                </div>
-                <div class="p-4">
-                    <div class="text-4xl mb-4">🔧</div>
-                    <h3 class="text-xl font-bold mb-2">Техподдержка</h3>
-                    <p class="text-blue-200">Обслуживание и поддержка после установки</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section id="contact-form" class="py-16 bg-gray-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="px-6 py-8 sm:p-10">
-                    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-4">Готовы обсудить ваш проект?</h2>
-                    <p class="text-center text-gray-600 mb-8">Оставьте заявку и получите бесплатную консультацию с выездом на объект</p>
-                    
-                    <form action="#" method="POST" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Ваше имя</label>
-                            <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                        </div>
-                        
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700">Телефон</label>
-                            <div class="mt-1 relative rounded-md shadow-sm">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <span class="text-gray-500 sm:text-sm">+7</span>
-                                </div>
-                                <input type="tel" name="phone" id="phone" required class="block w-full pl-10 px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="(999) 000-00-00">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Сообщение</label>
-                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
-                        </div>
-
-                        <div>
-                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
-                                Отправить заявку
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="md:flex md:justify-between">
-                <div class="mb-8 md:mb-0">
-                    <span class="text-2xl font-bold text-white">Системные Технологии</span>
-                    <p class="mt-2 text-sm text-gray-400">Надёжная защита вашего объекта 24/7</p>
-                </div>
-                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold text-white uppercase tracking-wider">Навигация</h2>
-                        <ul class="text-gray-400">
-                            <li class="mb-4"><a href="../index.html" class="hover:text-white transition">Главная</a></li>
-                            <li class="mb-4"><a href="../services.html" class="hover:text-white transition">Услуги</a></li>
-                            <li class="mb-4"><a href="../contacts.html" class="hover:text-white transition">Контакты</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold text-white uppercase tracking-wider">Контакты</h2>
-                        <ul class="text-gray-400">
-                            <li class="mb-4">+7 (812) 339-92-99</li>
-                            <li class="mb-4">Санкт-Петербург, ул. Бумажная, д. 16</li>
-                            <li class="mb-4">info@system-tech.ru</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
-                <p class="text-base text-gray-400">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
-                <p class="text-sm text-gray-500 mt-2 md:mt-0">ИНН 7838380554</p>
-            </div>
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
+            <p class="text-xs mt-2">190020, Санкт-Петербург, ул. Бумажная, д. 16, к.1 литера А, пом. 26Н | ИНН 7838380554</p>
         </div>
     </footer>
 
+    <script>
+        lucide.createIcons();
+        
+        // Настройка Intersection Observer для супер-плавной анимации
+        const observerOptions = {
+            threshold: 0.05,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Управление модальным окном
+        function openModal() {
+            document.getElementById('requestModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('requestModal').style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('requestModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
