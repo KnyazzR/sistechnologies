@@ -4,57 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Водоснабжение | Системные Технологии</title>
-    <meta name="description" content="Проектирование и монтаж систем холодного и горячего водоснабжения, водоотведения. Насосные станции и фильтрация воды. Санкт-Петербург.">
-    <link rel="icon" type="image/webp" href="../images/logo.webp">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; }
         .glass-effect {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
-        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
         .card-hover:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 500px;
-            max-height: 90vh;
-            overflow-y: auto;
-            animation: slideDown 0.3s;
-        }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: #2563EB;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .touch-target { min-height: 44px; min-width: 44px; }
-            input, textarea, select { font-size: 16px !important; }
         }
     </style>
 </head>
@@ -62,290 +38,192 @@
 
     <!-- Навигация -->
     <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
-        <div class="container mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
-            <a href="../index.html" class="flex items-center gap-2 md:gap-3">
-                <img src="../images/logo.webp" alt="Системные Технологии" class="h-10 w-10 md:h-12 md:w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3">
+                <img src="../images/logo.webp" alt="Системные Технологии" class="h-12 w-12 object-cover rounded-full shadow-md ring-2 ring-blue-100">
                 <div>
-                    <h1 class="text-base md:text-xl font-bold text-slate-900 leading-tight">Системные<br class="md:hidden">Технологии</h1>
+                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Системные<br>Технологии</h1>
                 </div>
             </a>
             <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
                 <a href="../index.html" class="hover:text-blue-600 transition">Главная</a>
-                <a href="../services.html" class="hover:text-blue-600 transition text-blue-600">Услуги</a>
+                <a href="../services.html" class="hover:text-blue-600 transition">Услуги</a>
                 <a href="../process.html" class="hover:text-blue-600 transition">Этапы</a>
                 <a href="../clients.html" class="hover:text-blue-600 transition">Клиенты</a>
                 <a href="../contacts.html" class="hover:text-blue-600 transition">Контакты</a>
             </nav>
-            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20 touch-target">
+            <a href="tel:+78123399299" class="hidden md:flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition">
                 <i data-lucide="phone" class="w-4 h-4"></i>
                 +7 (812) 339-92-99
             </a>
-            <button id="mobile-menu-btn" class="md:hidden p-2 touch-target w-11 h-11 flex flex-col justify-center items-center">
-                <span class="block w-6 h-0.5 bg-slate-900 mb-1.5"></span>
-                <span class="block w-6 h-0.5 bg-slate-900 mb-1.5"></span>
-                <span class="block w-6 h-0.5 bg-slate-900"></span>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
-            <nav class="container mx-auto px-4 py-4 flex flex-col gap-1 text-base font-semibold text-slate-600">
-                <a href="../index.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
-                    <i data-lucide="home" class="w-5 h-5 mr-3"></i>Главная
-                </a>
-                <a href="../services.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 text-blue-600 touch-target flex items-center">
-                    <i data-lucide="briefcase" class="w-5 h-5 mr-3"></i>Услуги
-                </a>
-                <a href="../process.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
-                    <i data-lucide="list-checks" class="w-5 h-5 mr-3"></i>Этапы работы
-                </a>
-                <a href="../clients.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
-                    <i data-lucide="users" class="w-5 h-5 mr-3"></i>Клиенты
-                </a>
-                <a href="../contacts.html" class="py-3 px-4 rounded-lg hover:bg-slate-50 touch-target flex items-center">
-                    <i data-lucide="mail" class="w-5 h-5 mr-3"></i>Контакты
-                </a>
-                <a href="tel:+78123399299" class="mt-3 flex items-center justify-center gap-2 bg-blue-600 text-white py-3.5 rounded-full font-semibold touch-target">
-                    <i data-lucide="phone" class="w-5 h-5"></i>
-                    +7 (812) 339-92-99
-                </a>
-            </nav>
         </div>
     </header>
 
-    <!-- Заголовок страницы -->
-    <section class="pt-28 md:pt-32 pb-12 md:pb-16 bg-white">
-        <div class="container mx-auto px-4 md:px-6">
-            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-600 hover:gap-3 transition-all mb-4 md:mb-6 touch-target">
+    <!-- Заголовок -->
+    <section class="pt-32 pb-16 bg-white">
+        <div class="container mx-auto px-6">
+            <a href="../services.html" class="inline-flex items-center gap-2 text-blue-600 hover:gap-3 transition-all mb-6">
                 <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                <span class="text-sm md:text-base">Назад к услугам</span>
+                Назад к услугам
             </a>
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center">
-                    <i data-lucide="droplets" class="w-8 h-8 md:w-9 md:h-9"></i>
-                </div>
-                <h1 class="text-3xl md:text-5xl font-bold text-slate-900">Водоснабжение</h1>
-            </div>
-            <p class="text-lg md:text-xl text-slate-600 max-w-3xl">
-                Системы холодного и горячего водоснабжения, водоотведения. Насосные станции, фильтрация и очистка воды.
-            </p>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Водоснабжение</h1>
+            <p class="text-xl text-slate-600 max-w-3xl">Системы холодного и горячего водоснабжения, водоотведения. Насосные станции, фильтрация и очистка воды.</p>
         </div>
     </section>
 
-    <!-- Основное описание -->
-    <section class="py-12 md:py-20 bg-slate-50">
-        <div class="container mx-auto px-4 md:px-6">
+    <!-- Статистика -->
+    <section class="py-12 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">ХВС</div>
+                    <div class="text-slate-600">Холодная вода</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">ГВС</div>
+                    <div class="text-slate-600">Горячая вода</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                    <div class="text-slate-600">Подача воды</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+                    <div class="text-slate-600">Лет опыта</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Описание -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-slate-900">Инженерные системы водоснабжения</h2>
-                <p class="text-base md:text-lg text-slate-600 mb-6 leading-relaxed">
-                    Мы проектируем и монтируем комплексные системы водоснабжения и водоотведения для объектов любой сложности. От частных домов до промышленных предприятий — обеспечиваем надёжную подачу чистой воды и эффективное водоотведение.
-                </p>
-                <p class="text-base md:text-lg text-slate-600 leading-relaxed">
-                    Работаем с современными материалами и оборудованием, гарантируем качество монтажа и долговечность систем.
-                </p>
+                <h2 class="text-3xl font-bold mb-6">Инженерные системы водоснабжения</h2>
+                <p class="text-lg text-slate-600 mb-8">Мы проектируем и монтируем комплексные системы водоснабжения и водоотведения для объектов любой сложности. От частных домов до промышленных предприятий — обеспечиваем надёжную подачу чистой воды и эффективное водоотведение.</p>
+                <p class="text-lg text-slate-600 mb-12">Работаем с современными материалами и оборудованием, гарантируем качество монтажа и долговечность систем.</p>
+            </div>
+        </div>
+    </section>
 
-                <!-- Статистика -->
-                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">ХВС</div>
-                        <p class="text-xs md:text-sm text-slate-500">Холодная вода</p>
-                    </div>
-                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">ГВС</div>
-                        <p class="text-xs md:text-sm text-slate-500">Горячая вода</p>
-                    </div>
-                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">24/7</div>
-                        <p class="text-xs md:text-sm text-slate-500">Подача воды</p>
-                    </div>
-                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">15+</div>
-                        <p class="text-xs md:text-sm text-slate-500">Лет опыта</p>
-                    </div>
+    <!-- Направления работы -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Направления работы</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- ХВС -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <h3 class="font-bold text-lg mb-3">Холодное водоснабжение (ХВС)</h3>
+                    <p class="text-slate-600 text-sm">Подвод холодной воды от центрального водопровода или скважины. Разводка по объекту, установка счётчиков, фильтров.</p>
+                </div>
+
+                <!-- ГВС -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <h3 class="font-bold text-lg mb-3">Горячее водоснабжение (ГВС)</h3>
+                    <p class="text-slate-600 text-sm">Подключение к центральной системе ГВС или установка водонагревателей (бойлеров, проточных нагревателей).</p>
+                </div>
+
+                <!-- Водоотведение -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <h3 class="font-bold text-lg mb-3">Водоотведение и канализация</h3>
+                    <p class="text-slate-600 text-sm">Прокладка канализационных труб, установка сантехники, септиков, систем очистки сточных вод.</p>
+                </div>
+
+                <!-- Насосные станции -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <h3 class="font-bold text-lg mb-3">Насосные станции</h3>
+                    <p class="text-slate-600 text-sm">Установка повысительных насосов для стабильного давления воды. Автоматические насосные станции.</p>
+                </div>
+
+                <!-- Фильтрация -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <h3 class="font-bold text-lg mb-3">Фильтрация и очистка воды</h3>
+                    <p class="text-slate-600 text-sm">Системы грубой и тонкой очистки, умягчители, обратный осмос, обезжелезивание.</p>
+                </div>
+
+                <!-- ЗАЩИТА ОТ ПРОТЕЧЕК (НОВЫЙ БЛОК) -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover">
+                    <h3 class="font-bold text-lg mb-3">Защита от протечек</h3>
+                    <p class="text-slate-600 text-sm">Датчики протечки воды, автоматическое перекрытие кранов. Защита от затопления.</p>
+                </div>
+
+                <!-- Сантехнические работы -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 card-hover md:col-span-2 lg:col-span-3">
+                    <h3 class="font-bold text-lg mb-3">Сантехнические работы</h3>
+                    <p class="text-slate-600 text-sm">Установка смесителей, раковин, унитазов, ванн, душевых кабин, стиральных и посудомоечных машин.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Виды систем -->
-    <section class="py-12 md:py-20 bg-white">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center">Направления работы</h2>
-                <div class="grid md:grid-cols-2 gap-4 md:gap-6">
-                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                            <i data-lucide="droplet" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Холодное водоснабжение (ХВС)</h3>
-                        <p class="text-slate-600 text-sm md:text-base">Подвод холодной воды от центрального водопровода или скважины. Разводка по объекту, установка счётчиков, фильтров.</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                            <i data-lucide="flame" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Горячее водоснабжение (ГВС)</h3>
-                        <p class="text-slate-600 text-sm md:text-base">Подключение к центральной системе ГВС или установка водонагревателей (бойлеров, проточных нагревателей).</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                            <i data-lucide="arrow-down-to-line" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Водоотведение и канализация</h3>
-                        <p class="text-slate-600 text-sm md:text-base">Прокладка канализационных труб, установка сантехники, септиков, систем очистки сточных вод.</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                            <i data-lucide="gauge" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Насосные станции</h3>
-                        <p class="text-slate-600 text-sm md:text-base">Установка повысительных насосов для стабильного давления воды. Автоматические насосные станции.</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                            <i data-lucide="filter" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Фильтрация и очистка воды</h3>
-                        <p class="text-slate-600 text-sm md:text-base">Системы грубой и тонкой очистки, умягчители, обратный осмос, обезжелезивание.</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-slate-50 border border-slate-100 card-hover">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
-                            <i data-lucide="wrench" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">Сантехнические работы</h3>
-                        <p class="text-slate-600 text-sm md:text-base">Установка смесителей, раковин, унитазов, ванн, душевых кабин, стиральных и посудомоечных машин.</p>
-                    </div>
+    <!-- Используемые материалы -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">Используемые материалы</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="px-6 py-3 bg-blue-50 rounded-full text-blue-700 font-semibold">Полипропилен</div>
+                <div class="px-6 py-3 bg-blue-50 rounded-full text-blue-700 font-semibold">Металлопластик</div>
+                <div class="px-6 py-3 bg-blue-50 rounded-full text-blue-700 font-semibold">Медные трубы</div>
+                <div class="px-6 py-3 bg-blue-50 rounded-full text-blue-700 font-semibold">Нержавеющая сталь</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Этапы -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Этапы реализации проекта</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">1</div>
+                    <h3 class="font-bold text-lg mb-2">Обследование объекта</h3>
+                    <p class="text-slate-600 text-sm">Осмотр помещения, определение точек водоразбора, оценка существующих систем.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
+                    <h3 class="font-bold text-lg mb-2">Проектирование</h3>
+                    <p class="text-slate-600 text-sm">Разработка схемы разводки, подбор труб и оборудования, расчёт диаметров.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
+                    <h3 class="font-bold text-lg mb-2">Монтаж</h3>
+                    <p class="text-slate-600 text-sm">Прокладка труб, установка коллекторов, счётчиков, фильтров, насосов.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">4</div>
+                    <h3 class="font-bold text-lg mb-2">Установка сантехники</h3>
+                    <p class="text-slate-600 text-sm">Монтаж смесителей, раковин, унитазов, ванн, душевых кабин.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">5</div>
+                    <h3 class="font-bold text-lg mb-2">Пуско-наладка</h3>
+                    <p class="text-slate-600 text-sm">Опрессовка системы, проверка герметичности, настройка давления.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">6</div>
+                    <h3 class="font-bold text-lg mb-2">Сдача и обслуживание</h3>
+                    <p class="text-slate-600 text-sm">Инструктаж по использованию, гарантийное и постгарантийное обслуживание.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Компоненты -->
-    <section class="py-12 md:py-20 bg-slate-50">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center">Используемые материалы</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center card-hover">
-                        <i data-lucide="cable" class="w-8 h-8 md:w-10 md:h-10 text-blue-600 mx-auto mb-2"></i>
-                        <p class="text-xs md:text-sm font-semibold text-slate-700">Полипропилен</p>
-                    </div>
-                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center card-hover">
-                        <i data-lucide="cable" class="w-8 h-8 md:w-10 md:h-10 text-blue-600 mx-auto mb-2"></i>
-                        <p class="text-xs md:text-sm font-semibold text-slate-700">Металлопластик</p>
-                    </div>
-                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center card-hover">
-                        <i data-lucide="cable" class="w-8 h-8 md:w-10 md:h-10 text-blue-600 mx-auto mb-2"></i>
-                        <p class="text-xs md:text-sm font-semibold text-slate-700">Медные трубы</p>
-                    </div>
-                    <div class="bg-white p-4 md:p-6 rounded-xl border border-slate-200 text-center card-hover">
-                        <i data-lucide="cable" class="w-8 h-8 md:w-10 md:h-10 text-blue-600 mx-auto mb-2"></i>
-                        <p class="text-xs md:text-sm font-semibold text-slate-700">Нержавеющая сталь</p>
-                    </div>
-                </div>
-            </div>
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Готовы обсудить ваш проект?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Оставьте заявку и получите бесплатную консультацию с выездом на объект</p>
+            <a href="../contacts.html" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg">
+                Обсудить проект
+            </a>
         </div>
     </section>
-
-    <!-- Этапы работы -->
-    <section class="py-12 md:py-20 bg-white">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-slate-900 text-center">Этапы реализации проекта</h2>
-                <div class="space-y-4">
-                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
-                        <div>
-                            <h4 class="font-bold mb-1">Обследование объекта</h4>
-                            <p class="text-slate-600 text-sm md:text-base">Осмотр помещения, определение точек водоразбора, оценка существующих систем.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
-                        <div>
-                            <h4 class="font-bold mb-1">Проектирование</h4>
-                            <p class="text-slate-600 text-sm md:text-base">Разработка схемы разводки, подбор труб и оборудования, расчёт диаметров.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
-                        <div>
-                            <h4 class="font-bold mb-1">Монтаж</h4>
-                            <p class="text-slate-600 text-sm md:text-base">Прокладка труб, установка коллекторов, счётчиков, фильтров, насосов.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
-                        <div>
-                            <h4 class="font-bold mb-1">Установка сантехники</h4>
-                            <p class="text-slate-600 text-sm md:text-base">Монтаж смесителей, раковин, унитазов, ванн, душевых кабин.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
-                        <div>
-                            <h4 class="font-bold mb-1">Пуско-наладка</h4>
-                            <p class="text-slate-600 text-sm md:text-base">Опрессовка системы, проверка герметичности, настройка давления.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">6</div>
-                        <div>
-                            <h4 class="font-bold mb-1">Сдача и обслуживание</h4>
-                            <p class="text-slate-600 text-sm md:text-base">Инструктаж по использованию, гарантийное и постгарантийное обслуживание.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-12 text-center">
-                    <button onclick="openModal()" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 touch-target inline-flex items-center gap-2">
-                        <i data-lucide="message-square" class="w-5 h-5"></i>
-                        Обсудить проект
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Модальное окно -->
-    <div id="requestModal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Заявка на водоснабжение</h3>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 touch-target w-10 h-10 flex items-center justify-center">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-            <form action="https://formspree.io/f/ВАШ_FORMСПРЕЕ_ID" method="POST" class="space-y-4">
-                <input type="hidden" name="service" value="Водоснабжение">
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
-                    <input type="text" name="name" required class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="Иван Иванов">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Телефон</label>
-                    <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500">
-                        <span class="pl-4 pr-2 text-slate-500 font-medium select-none border-r border-slate-200 py-3">+7</span>
-                        <input type="tel" name="phone" required inputmode="tel" class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                    <input type="email" name="email" class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="example@mail.ru">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Расскажите о задаче</label>
-                    <textarea name="message" rows="3" class="form-input w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900" placeholder="Тип объекта, площадь, количество точек..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition touch-target">
-                    Отправить заявку
-                </button>
-            </form>
-        </div>
-    </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-6 md:py-8 border-t border-slate-800">
-        <div class="container mx-auto px-4 md:px-6 text-center">
-            <p class="text-xs md:text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
             <p class="text-xs mt-2">190020, Санкт-Петербург, ул. Бумажная, д. 16, к.1 литера А, пом. 26Н | ИНН 7838380554</p>
         </div>
     </footer>
@@ -353,35 +231,20 @@
     <script>
         lucide.createIcons();
         
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        function openModal() {
-            document.getElementById('requestModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeModal() {
-            document.getElementById('requestModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        window.onclick = function(event) {
-            const modal = document.getElementById('requestModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
