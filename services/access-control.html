@@ -18,31 +18,30 @@
         }
         .fade-in {
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
         .hover-lift {
-            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
- top: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(4px);
-            animation: fadeIn 0.4s ease-out;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
         }
         .modal-content {
             background-color: white;
@@ -50,14 +49,15 @@
             padding: 2rem;
             border-radius: 1rem;
             max-width: 500px;
-            animation: slideDown 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            animation: slideDown 0.3s;
         }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
+    <!-- Навигация -->
     <header class="fixed w-full top-0 z-50 glass-effect border-b border-slate-200 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="../index.html" class="flex items-center gap-3">
@@ -80,9 +80,10 @@
         </div>
     </header>
 
+    <!-- Заголовок с фоном -->
     <section class="pt-32 pb-20 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
-            <img src="../images/solutions/skud.webp" alt="" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="" class="w-full h-full object-cover">
         </div>
         <div class="container mx-auto px-6 relative z-10">
             <a href="../services.html" class="inline-flex items-center gap-2 text-blue-200 hover:text-white transition-all mb-6">
@@ -94,6 +95,7 @@
         </div>
     </section>
 
+    <!-- Статистика -->
     <section class="py-12 bg-white -mt-10 relative z-20">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -117,6 +119,7 @@
         </div>
     </section>
 
+    <!-- Описание -->
     <section class="py-16 bg-slate-50">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
@@ -139,7 +142,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-lg fade-in">
-                    <img src="../images/solutions/skud.webp" alt="СКУД" class="w-full h-72 object-cover rounded-lg mb-6">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="СКУД" class="w-full h-64 object-cover rounded-lg mb-6">
                     <div class="grid md:grid-cols-3 gap-6 text-center">
                         <div>
                             <div class="text-3xl font-bold text-blue-600 mb-2">300+</div>
@@ -159,53 +162,60 @@
         </div>
     </section>
 
+    <!-- Наши решения -->
     <section id="solutions" class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 fade-in">Наши решения</h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Электронные пропускные системы -->
                 <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
-                    <img src="../images/solutions/solutions-rfid.webp" alt="Электронные пропускные системы" class="w-full h-48 object-cover">
+                    <img src="../images/solutions/access-cards.webp" alt="Электронные пропускные системы" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg mb-2">Электронные пропускные системы</h3>
                         <p class="text-slate-600 text-sm">Карты доступа, брелоки, ключи-таблетки. Учёт рабочего времени и контроль перемещений.</p>
                     </div>
                 </div>
 
+                <!-- Биометрические системы -->
                 <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
-                    <img src="../images/solutions/solutions-biometrics.webp" alt="Биометрические системы" class="w-full h-48 object-cover">
+                    <img src="../images/solutions/biometric.webp" alt="Биометрические системы" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg mb-2">Биометрические системы</h3>
                         <p class="text-slate-600 text-sm">Распознавание отпечатков пальцев, лиц, радужки глаза. Максимальная безопасность.</p>
                     </div>
                 </div>
 
+                <!-- Домофонные системы -->
                 <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
-                    <img src="../images/solutions/analog.webp" alt="Домофонные системы" class="w-full h-48 object-cover">
+                    <img src="../images/solutions/intercom.webp" alt="Домофонные системы" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg mb-2">Домофонные системы</h3>
                         <p class="text-slate-600 text-sm">Аудио и видеодомофоны для жилых и коммерческих объектов. Удалённое открытие.</p>
                     </div>
                 </div>
 
+                <!-- Учёт рабочего времени (НОВЫЙ БЛОК ВМЕСТО ЗАЩИТЫ ОТ ПРОТЕЧЕК) -->
                 <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
-                    <img src="../images/solutions/solutions-leak-protection.webp" alt="Защита от протечек" class="w-full h-48 object-cover">
+                    <img src="../images/solutions/time-tracking.webp" alt="Учёт рабочего времени" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Защита от протечек</h3>
-                        <p class="text-slate-600 text-sm">Датчики протечки воды, автоматическое перекрытие кранов. Защита от затопления.</p>
+                        <h3 class="font-bold text-lg mb-2">Учёт рабочего времени</h3>
+                        <p class="text-slate-600 text-sm">Контроль прихода и ухода сотрудников. Формирование отчётов по рабочему времени. Интеграция с 1С.</p>
                     </div>
                 </div>
 
+                <!-- Интеграция с видеонаблюдением -->
                 <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
-                    <img src="../images/solutions/solutions-cctv.webp" alt="Интеграция с видеонаблюдением" class="w-full h-48 object-cover">
+                    <img src="../images/solutions/cctv-integration.webp" alt="Интеграция с видеонаблюдением" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg mb-2">Интеграция с видеонаблюдением</h3>
                         <p class="text-slate-600 text-sm">Объединение СКУД с системами видеонаблюдения для полного контроля.</p>
                     </div>
                 </div>
 
+                <!-- Турникеты и шлагбаумы -->
                 <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden hover-lift fade-in">
-                    <img src="../images/solutions/solutions-turnstiles.webp" alt="Турникеты и шлагбаумы" class="w-full h-48 object-cover">
+                    <img src="../images/solutions/turnstile.webp" alt="Турникеты и шлагбаумы" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg mb-2">Турникеты и шлагбаумы</h3>
                         <p class="text-slate-600 text-sm">Автоматические преграждающие устройства для контроля доступа на территорию.</p>
@@ -215,6 +225,7 @@
         </div>
     </section>
 
+    <!-- Почему выбирают нас -->
     <section class="py-16 bg-slate-50">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 fade-in">Почему выбирают нас</h2>
@@ -251,7 +262,8 @@
         </div>
     </section>
 
-    <section class="py-20 bg-blue-600 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in">Готовы обсудить ваш проект?</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto fade-in">Оставьте заявку и получите бесплатную консультацию с выездом на объект</p>
@@ -261,6 +273,7 @@
         </div>
     </section>
 
+    <!-- Модальное окно -->
     <div id="requestModal" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-center mb-6">
@@ -269,31 +282,30 @@
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
-            <form id="modalRequestForm" action="https://formspree.io/f/ВАШ_ID" method="POST" novalidate class="space-y-4">
+            <form action="https://formspree.io/f/ВАШ_ID" method="POST" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1">Ваше имя</label>
-                    <input type="text" id="modalNameInput" name="name" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500" placeholder="Иван Иванов">
-                    <p id="modalNameError" class="text-red-500 text-xs mt-1 hidden">Имя должно содержать только буквы и быть длиннее 1 символа</p>
+                    <input type="text" name="name" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500" placeholder="Иван Иванов">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1">Телефон</label>
-                    <div id="modalPhoneContainer" class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500">
+                    <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg overflow-hidden focus-within:border-blue-500">
                         <span class="pl-4 pr-2 text-slate-500 font-medium select-none border-r border-slate-200 py-3">+7</span>
-                        <input type="tel" id="modalPhoneInput" name="phone" class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
+                        <input type="tel" name="phone" required class="flex-1 bg-transparent py-3 px-3 text-slate-900 focus:outline-none" placeholder="(999) 123-45-67">
                     </div>
-                    <p id="modalPhoneError" class="text-red-500 text-xs mt-1 hidden">Введите корректный номер телефона (10 цифр)</p>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1">Сообщение</label>
-                    <textarea name="message" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500" placeholder="Напишите ваши пожелания"></textarea>
+                    <textarea name="message" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-blue-500" placeholder="Расскажите о вашем проекте..."></textarea>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition cursor-pointer">
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
                     Отправить заявку
                 </button>
             </form>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
         <div class="container mx-auto px-6 text-center">
             <p class="text-sm">&copy; 2007-2026 ООО «Системные Технологии». Все права защищены.</p>
@@ -305,8 +317,8 @@
         lucide.createIcons();
         
         const observerOptions = {
-            threshold: 0.05,
-            rootMargin: '0px 0px -30px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -333,44 +345,6 @@
                 modal.style.display = 'none';
             }
         }
-
-        // Внедрение валидации формы модального окна
-        const modalForm = document.getElementById('modalRequestForm');
-        modalForm.addEventListener('submit', function(event) {
-            let isValid = true;
-
-            const name = document.getElementById('modalNameInput');
-            const phone = document.getElementById('modalPhoneInput');
-            const phoneContainer = document.getElementById('modalPhoneContainer');
-
-            const nameError = document.getElementById('modalNameError');
-            const phoneError = document.getElementById('modalPhoneError');
-
-            const nameRegex = /^[A-Za-zА-Яа-яЁё\s]{2,}$/;
-            const cleanPhone = phone.value.replace(/\D/g, '');
-
-            if (!nameRegex.test(name.value.trim())) {
-                name.classList.add('border-red-500', 'bg-red-50');
-                nameError.classList.remove('hidden');
-                isValid = false;
-            } else {
-                name.classList.remove('border-red-500', 'bg-red-50');
-                nameError.classList.add('hidden');
-            }
-
-            if (cleanPhone.length !== 10) {
-                phoneContainer.classList.add('border-red-500', 'bg-red-50');
-                phoneError.classList.remove('hidden');
-                isValid = false;
-            } else {
-                phoneContainer.classList.remove('border-red-500', 'bg-red-50');
-                phoneError.classList.add('hidden');
-            }
-
-            if (!isValid) {
-                event.preventDefault();
-            }
-        });
     </script>
 </body>
 </html>
